@@ -1,0 +1,454 @@
+{
+	"version": "1.0.0",
+	"author": "dxl",
+	"config": {
+		"href": "http://marketpromoter.admin.ct108.org:1505",
+		"host": "marketpromoter.admin.ct108.org",
+		"port": 1505,
+		"debug": true
+	},
+	"dataList": [
+		{
+		    "url": "/api/Project/GetList",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": {
+			        "PageCount": 10,
+			        "RecordCount": 100,
+			        "List": [
+			            {
+			                "ID": 1,
+			                "Name": "项目名称",
+			                "PrincipalID": 12,
+			                "PrincipalName": "李晓刚",
+			                "AreaName": "浙江-杭州",
+			                "AreaCode": "0601",
+			                "BeginTime": "2016-09-20",
+			                "EndTime": "2016-09-20",
+			                "Status": 1,
+			                "Budget": "3.20",
+			                "PromoterCount": 10
+			            },
+			            {
+			                "ID": 2,
+			                "Name": "项目名称",
+			                "PrincipalID": 12,
+			                "PrincipalName": "李晓刚",
+			                "AreaName": "浙江-杭州",
+			                "AreaCode": "0601",
+			                "BeginTime": "2016-09-20",
+			                "EndTime": "2016-09-20",
+			                "Status": 2,
+			                "Budget": "3.20",
+			                "PromoterCount": 10
+			            }
+			        ]
+			    }
+			}
+		}, {
+		    "url": "/api/Project/GetAll",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": [
+			        {
+			            "ProjectID": 0,
+			            "ProjectName": "项目名称0"
+			        },
+			        {
+			            "ProjectID": 1,
+			            "ProjectName": "项目名称1"
+			        }
+			    ]
+			}
+		}, {
+		    "url": "/api/Home/GetAllAdmin",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": [
+			        {
+			            "AdminID": 0,
+			            "AdminName": "管理员名称0"
+			        },
+			        {
+			            "AdminID": 1,
+			            "AdminName": "管理员名称1"
+			        }
+			    ]
+			}
+		}, {
+		    "url": "/api/Home/GetAllDistricts",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": [
+			        {
+			            "DistrictName": "西城区",
+			            "ProvinceCode": "06",
+			            "CityCode": "0601",
+			            "DistrictCode": "060101"
+			        },
+			        {
+			            "DistrictName": "上城城区",
+			            "ProvinceCode": "06",
+			            "CityCode": "0601",
+			            "DistrictCode": "060102"
+			        },
+			        {
+			        	"DistrictName": "宁波的县",
+			            "ProvinceCode": "06",
+			            "CityCode": "0602",
+			            "DistrictCode": "060201"
+			        },
+			        {
+			        	"DistrictName": "宁波的县",
+			            "ProvinceCode": "06",
+			            "CityCode": "0602",
+			            "DistrictCode": "060202"
+			        }
+			    ]
+			}
+		}, {
+		    "url": "/api/Home/GetAllCities",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": [
+			        {
+			            "CityName": "杭州",
+			            "ProvinceCode": "06",
+			            "CityCode": "0601"
+			        },
+			        {
+			            "CityName": "宁波",
+			            "ProvinceCode": "06",
+			            "CityCode": "0602"
+			        }
+			    ]
+			}
+		}, {
+		    "url": "/api/Home/GetAllProvinces",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": [
+			        {
+			            "ProvinceCode": "06",
+			            "ProvinceName": "浙江"
+			        },
+			        {
+			            "ProvinceCode": "05",
+			            "ProvinceName": "福建"
+			        }
+			    ]
+			}
+		}, {
+		    "url": "/api/Promoter/GetListByProject",
+		    "type": "get",
+		    "data": {
+			  "Status": true,
+			  "Code": 1,
+			    "Message": "成功",
+			    "Data": [
+			        {
+			            "UserID": 123,
+			            "PhoneNo": "13588096777",
+			            "UserName": "张三"
+			        },
+			        {
+			            "UserID": 124,
+			            "PhoneNo": "13588096777",
+			            "UserName": "李四"
+			        }
+			    ]
+			}
+		}, {
+		    "url": "/api/Promoter/GetNoBindList",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": [
+			        {
+			            "UserID": 125,
+			            "PhoneNo": "13588096777",
+			            "UserName": "王五"
+			        },
+			        {
+			            "UserID": 126,
+			            "PhoneNo": "13588096777",
+			            "UserName": "赵六"
+			        }
+			    ]
+			}
+		},{
+		    "url": "/api/Promoter/GetList",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": {
+			        "PageCount": 10,
+			        "RecordCount": 100,
+			        "List": [
+			            {
+			                "RegTime": "2015-07-07",
+			                "UserID": 1086,
+			                "Name": "推广员名称",
+			                "PhoneNo": "13588096793",
+			                "ProjectID": 0,
+			                "ProjectName": null,
+			                "Status": 1
+			            },
+			            {
+			                "RegTime": "2015-07-08",
+			                "UserID": 1088,
+			                "Name": "推广员名称",
+			                "PhoneNo": "13588096795",
+			                "ProjectID": 0,
+			                "ProjectName": null,
+			                "Status": 2
+			            }
+			        ]
+			    }
+			}
+		},{
+		    "url": "/api/BusiMultisend/GetList",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": {
+			        "PageCount": 10,
+			        "RecordCount": 100,
+			        "List": [
+			            {
+			                "ID": 1,
+			                "CreateTime": "2016-09-09",
+			                "ProjectID": 10,
+			                "ProjectName": "项目名称",
+			                "Principal": "负责人名称",
+			                "AreaName": "浙江-杭州",
+			                "PromoterCount": 18
+			            },
+			            {
+			                "ID": 1,
+			                "CreateTime": "2016-09-09",
+			                "ProjectID": 10,
+			                "ProjectName": "项目名称",
+			                "Principal": "负责人名称",
+			                "AreaName": "浙江-杭州",
+			                "PromoterCount": 18
+			            }
+			        ]
+			    }
+			}
+		},{
+		    "url": "/api/BusiMultisend/GetPriceListByBusiID",
+		    "type": "get",
+		    "data": {
+			    "Status": true,
+			    "Code": 1,
+			    "Message": "成功",
+			    "Data": {
+			        "ProjectName": "项目名称",
+			        "PriceList": [
+			            {
+			                "MinValue": 1,
+			                "MaxValue": 10,
+			                "Price": 5
+			            },
+			            {
+			                "MinValue": 11,
+			                "MaxValue": 20,
+			                "Price": 5
+			            }
+			        ]
+			    }
+			}
+		},{
+		    "url": "/api/WorkOrder/GetList",
+		    "type": "get",
+		    "data": {
+				  "Status": true,
+				  "Code": 1,
+				    "Message": "成功",
+				    "Data": {
+				        "PageCount": 10,
+				        "RecordCount": 100,
+				        "List": [
+				            {
+				                "ID": 1,
+				                "UserID": "123",
+				                "UserName": "推广员名称",
+				                "ProjectName": "项目名称",
+				                "Status": 1,
+				                "SettlementStatus": 1,
+				                "DataCount": 10,
+				                "VaildDataCount": 5,
+				                "AuditPerson": "审核人名称",
+				                "Amount": "5.50"
+				            },
+				            {
+				                "ID": 2,
+				                "UserID": "124",
+				                "UserName": "推广员名称1",
+				                "ProjectName": "项目名称1",
+				                "Status": 2,
+				                "SettlementStatus": 1,
+				                "DataCount": 10,
+				                "VaildDataCount": 5,
+				                "AuditPerson": "审核人名称",
+				                "Amount": "5.50"
+				            }
+				        ]
+				    }
+				}
+		},{
+		    "url": "/api/WorkOrderItem/GetList",
+		    "type": "get",
+		    "data": {
+				  "Status": true,
+				  "Code": 1,
+				    "Message": "成功",
+				    "Data": {
+				        "PageCount": 10,
+				        "RecordCount": 100,
+				        "List": [
+				            {
+				                "ID": 101,
+				                "OrderID": 10,
+				                "GroupImagePath": "http://img.yaodou.com/game/cqss/2015092216486.jpg",
+				                "QRCodeImagePath": "http://campus.ct108.com/static/images/mark.png",
+				                "UserName": "推广员名称",
+				                "ProjectName": "项目名称",
+				                "Status":1,
+				                "QRStatus":1,
+				                "OrderSettlementStatus": 1,
+				                "AuditRemark": "",
+				                "GroupCount": 10
+				            },
+				            {
+				                "ID": 101,
+				                "OrderID": 10,
+				                "GroupImagePath": "http://img.yaodou.com/game/zilong/2016061515576.jpg",
+				                "QRCodeImagePath": "http://campus.ct108.com/static/images/mark.png",
+				                "UserName": "推广员名称",
+				                "ProjectName": "项目名称",
+				                "Status":2,
+				                "QRStatus":2,
+				                "OrderSettlementStatus": 1,
+				                "AuditRemark": "图片不清晰dddddd",
+				                "GroupCount": 10
+				            }
+				        ]
+				    }
+				}
+		},{
+		    "url": "/api/PromoterMultisend/GetList",
+		    "type": "get",
+		    "data": {
+				  "Status": true,
+				  "Code": 1,
+				    "Message": "成功",
+				    "Data": {
+				        "PageCount": 10,
+				        "RecordCount": 100,
+				        "List": [
+				            {
+				                "UserID": 101,
+				                "UserName": "推广员名称",
+				                "ProjectName": "项目名称",
+				                "AreaName": "浙江-杭州",
+				                "Principal": "负责人名称",
+				                "SettlementAmount": 10,
+				                "WaitSettlementAmount": 10,
+				                "ToAuditCount": 4,
+				                "OrderCount": 5,
+				                "PassedCount": 30,
+				                "ItemCount": 35
+				            },
+				            {
+				                "UserID": 102,
+				                "UserName": "推广员名称",
+				                "ProjectName": "项目名称",
+				                "AreaName": "浙江-杭州",
+				                "Principal": "负责人名称",
+				                "SettlementAmount": 10,
+				                "WaitSettlementAmount": 10,
+				                "ToAuditCount": 4,
+				                "OrderCount": 5,
+				                "PassedCount": 30,
+				                "ItemCount": 35
+				            }
+				        ]
+				    }
+				}
+		},{
+		    "url": "/api/MarketLeader/GetList",
+		    "type": "get",
+		    "data": {
+			  	"Status": true,
+			  	"Code": 1,
+			    "Message": "成功",
+			    "Data": {
+			        "PageCount": 10,
+			        "RecordCount": 100,
+			        "List": [
+			            {
+			                "ID": 101,
+			                "AdminName": "组长名称",
+			                "CreateTime": "2011-11-11"
+			               
+			            },
+			            {
+			                "ID": 102,
+			                "AdminName": "组长名称",
+			                "CreateTime": "2011-11-12"
+			            }
+			        ]
+			    }
+			}
+		},{
+		    "url": "/api/Promoter/BindToProject",
+		    "type": "post",
+		    "data": {}
+		},{
+		    "url": "/api/Home/GetPageAuth",
+		    "type": "get",
+		    "data": {
+		    	"Code":1,
+		    	"Data":true,
+		    	"Message":"成功",
+		    	"Status":true
+		    }
+		},{
+		    "url": "/api/MarketLeader/IsLeader",
+		    "type": "get",
+		    "data": {
+		    	"Code":1,
+		    	"Data":true,
+		    	"Message":"成功",
+		    	"Status":true
+		    }
+		}
+
+	]
+}
