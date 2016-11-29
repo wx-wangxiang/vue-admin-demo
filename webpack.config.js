@@ -45,6 +45,10 @@ module.exports = {
 			loaders: ['style', 'css'],
 			include: APP_PATH
 		},{
+			test: /\.less$/,
+			loaders: ['style', 'css', 'less']
+			//include: APP_PATH
+		},{
 			test: /\.(png|jpg|gif|woff|woff2)/,
 			loader: 'url?limit=8192'
 		},{

@@ -46,11 +46,11 @@
 
 	'use strict';
 
-	var _vue = __webpack_require__(1);
+	var _vue = __webpack_require__(14);
 
 	var _vue2 = _interopRequireDefault(_vue);
 
-	var _main = __webpack_require__(3);
+	var _main = __webpack_require__(16);
 
 	var _main2 = _interopRequireDefault(_main);
 
@@ -62,7 +62,20 @@
 	});
 
 /***/ },
-/* 1 */
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -10303,10 +10316,10 @@
 	}, 0);
 
 	module.exports = Vue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
 
 /***/ },
-/* 2 */
+/* 15 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -10492,17 +10505,17 @@
 
 
 /***/ },
-/* 3 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
 	var __vue_styles__ = {}
-	__vue_script__ = __webpack_require__(4)
+	__vue_script__ = __webpack_require__(17)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\js\\component\\main.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(5)
+	__vue_template__ = __webpack_require__(49)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -10527,26 +10540,135 @@
 	})()}
 
 /***/ },
-/* 4 */
-/***/ function(module, exports) {
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	// <template>
-	// 	<h1 @click="changeColor" :style="{color: activeColor}">Hello {{msg}}</h1>
+
+	var _index = __webpack_require__(18);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	__webpack_require__(45); // <template>
+	// 	<!-- <h1 @click="changeColor" :style="{color: activeColor}">Hello {{msg}}</h1> -->
+	// 	<div class="container-fluid">
+	// 		<!-- search -->
+	// 			<div class="well well-sm">
+	// 				<form class="form-horizontal">
+	// 					<div class="row">
+	// 						<div class="col-lg-10 col-sm-10 text-nowrap">
+	// 							<div class="col-lg-3 col-sm-4">
+	// 								<div class="form-group form-group-sm">
+	// 									<label class="control-label col-lg-4 col-sm-4">项目名称：</label>
+	// 									<div class="col-lg-8 col-sm-8">
+	// 					                    <input type="text" class="form-control" ms-duplex="input" ms-on-focus="focus"/>
+	// 					                </div>
+	// 								</div>
+	// 							</div>
+	// 							<div class="col-lg-6 col-sm-8">
+	// 								<div class="form-group form-group-sm">
+	// 									<label class="control-label col-lg-2 col-sm-2">加入日期：</label>
+	// 									<div class="col-lg-10 col-sm-10">
+	// 										<div class="input-group">
+	// 											<input readonly="readonly" type="text" id="dateTimePicker1" class="form-control" ms-duplex-string="StaticData.searchData.BeginDate">
+	// 											<span class="input-group-addon">至</span>
+	// 											<input readonly="readonly" id="dateTimePicker2" type="text" class="form-control" ms-duplex="StaticData.searchData.EndDate">
+	// 										</div>
+	// 									</div>
+	// 								</div>
+	// 							</div>
+	// 							<div class="col-lg-3 col-sm-4">
+	// 								<div class="form-group form-group-sm">
+	// 									<label class="control-label col-lg-4 col-sm-4">负责人：</label>
+	// 									<div class="dropdown col-lg-8 col-sm-8">
+	// 					                    <input type="text" class="form-control input-sm" ms-duplex="input" ms-on-focus="focus"/>
+	// 					                </div>
+	// 								</div>
+	// 							</div>
+	// 							<div class="col-lg-6 col-sm-8">
+	// 								<div class="form-group form-group-sm">
+	// 									<label class="control-label col-lg-2 col-sm-2">地区：</label>
+	// 									<div class="col-lg-10 col-sm-10">
+	// 										<div class="col-lg-4 col-sm-4">
+	// 											<select ms-duplex='StaticData.selectedProvince' class="form-control">
+	// 												<option value="00">省</option>
+	// 												<option v-for="province in Provinces" :value="province.ProvinceCode">{{province.ProvinceName}}</option>
+	// 											</select>
+	// 										</div>
+	// 										<div class="col-lg-4 col-sm-4">
+	// 											<select ms-duplex='StaticData.selectedCity' class="form-control">
+	// 												<option value="0000">市</option>
+	// 												<option v-for='city in Citys' :value="city.CityCode">{{city.CityName}}</option>
+	// 											</select>
+	// 										</div>
+	// 										<div class="col-lg-4 col-sm-4">
+	// 											<select ms-duplex='StaticData.selectedDistrict' class="form-control">
+	// 												<option value="000000">县</option>
+	// 												<option v-for="district in Districts" ms-attr-value="district.DistrictCode">{{district.DistrictName}}</option>
+	// 											</select>
+	// 										</div>
+	// 									</div>
+	// 								</div>
+	// 							</div>
+	// 						</div>
+	// 						<div class="col-lg-2 col-sm-2 text-right">
+	// 							<div class="form-group">
+	// 								<button type="submit" class="btn btn-primary btn-sm" ms-click="search"><i class="glyphicon glyphicon-search"></i> 搜索</button>
+	// 							</div>
+	// 						</div>
+	// 					</div>
+	// 				</form>
+	// 			</div>
+	// 			<time-picker></time-picker>
+	// 		<!-- /.search -->
+	// 		</div>
 	// </template>
 	// <script type="text/javascript">
 	exports.default = {
 		data: function data() {
 			return {
 				msg: 'world',
-				activeColor: 'red'
+				activeColor: 'red',
+				Provinces: [{
+					ProvinceCode: '01',
+					ProvinceName: '北京'
+				}, {
+					ProvinceCode: '02',
+					ProvinceName: '天津'
+				}, {
+					ProvinceCode: '03',
+					ProvinceName: '上海'
+				}],
+				Citys: [{
+					CityCode: '0001',
+					CityName: '北京'
+				}, {
+					CityCode: '0002',
+					CityName: '北京'
+				}, {
+					CityCode: '0003',
+					CityName: '北京'
+				}],
+				Districts: [{
+					DistrictCode: '000001',
+					DistrictName: '东城区'
+				}, {
+					DistrictCode: '000002',
+					DistrictName: '西城区'
+				}, {
+					DistrictCode: '000003',
+					DistrictName: '王府井'
+				}]
 			};
 		},
 
+		components: { timePicker: _index2.default },
 		methods: {
 			changeColor: function changeColor() {
 				this.activeColor = this.activeColor === 'red' ? 'green' : 'red';
@@ -10556,10 +10678,1122 @@
 	// </script>
 
 /***/ },
-/* 5 */
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _timePicker = __webpack_require__(19);
+
+	var _timePicker2 = _interopRequireDefault(_timePicker);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _timePicker2.default;
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	var __vue_styles__ = {}
+	__vue_script__ = __webpack_require__(20)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src\\js\\component\\timePicker\\timePicker.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(44)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
+	if (__vue_template__) {
+	__vue_options__.template = __vue_template__
+	}
+	if (!__vue_options__.computed) __vue_options__.computed = {}
+	Object.keys(__vue_styles__).forEach(function (key) {
+	var module = __vue_styles__[key]
+	__vue_options__.computed[key] = function () { return module }
+	})
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-08cbd8e6/timePicker.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _timePickerOption = __webpack_require__(21);
+
+	var _timePickerOption2 = _interopRequireDefault(_timePickerOption);
+
+	var _func = __webpack_require__(43);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// <template lang="html">
+	//     <span :class="wrapClasses">
+	//         <input type="text" class="ant-time-picker-input" placeholder="请选择时间" @click="timePicker" v-model="value" v-el:time-picker readonly disabled="{{disabled}}">
+	//         <span class="ant-time-picker-icon"></span>
+	//     </span>
+	//     <time-picker-node transition="fade" v-show="selected" :selected.sync="selected" :style="style" :time-value.sync="value" :local-format="format" :start-time="startTime" :end-time="endTime" :disabled-m="disabledMinutes" :disabled-s="disabledSeconds" v-el:time-picker-option></time-picker-node>
+	// </template>
+	//
+	// <script>
+	exports.default = {
+	    name: 'v-time-picker',
+	    data: function data() {
+	        return {
+	            prefix: 'ant-time-picker',
+	            style: {},
+	            dropDown: false,
+	            selected: false
+	        };
+	    },
+	    props: {
+	        position: {
+	            type: String,
+	            default: 'absolute'
+	        },
+	        size: String,
+	        format: String,
+	        disabled: Boolean,
+	        startTime: String,
+	        endTime: String,
+	        value: String,
+	        disabledMinutes: Array,
+	        disabledSeconds: Array
+	    },
+	    created: function created() {
+	        document.addEventListener('click', this.backdrop);
+	    },
+
+	    computed: {
+	        wrapClasses: function wrapClasses() {
+	            return [this.prefix, this.prefix + '-' + this.size];
+	        }
+	    },
+	    ready: function ready() {
+	        var _this = this;
+
+	        this.$els.timePickerOption.style.position = this.position;
+	        document.body.appendChild(this.$els.timePickerOption);
+
+	        this.$nextTick(function () {
+	            _this.setPosition();
+	        });
+	        var timer = null;
+	        window.addEventListener('resize', function () {
+	            clearTimeout(timer);
+	            timer = setTimeout(function () {
+	                if (!_this.disabled) {
+	                    _this.setPosition();
+	                }
+	            }, 200);
+	        });
+	    },
+	    beforeDestroy: function beforeDestroy() {
+	        document.removeEventListener('click', this.backdrop);
+	        window.removeEventListener('resize', this.backdrop);
+	        var node = this.$els.timePickerOption;
+	        node && document.body.removeChild(node);
+	    },
+
+	    methods: {
+	        timePicker: function timePicker() {
+	            this.selected = !this.selected;
+	        },
+	        setPosition: function setPosition() {
+	            if (!this.$el) {
+	                return;
+	            }
+	            var p = (0, _func.getOffset)(this.$els.timePicker);
+
+	            this.$set('style', {
+	                top: p.top + 'px',
+	                left: p.left + 'px'
+	            });
+	        },
+	        backdrop: function backdrop(e) {
+	            if (!(0, _func.closeByElement)(e.target, [this.$els.timePicker, this.$els.timePickerOption])) {
+	                this.$set('selected', false);
+	            }
+	        }
+	    },
+	    components: {
+	        timePickerNode: _timePickerOption2.default
+	    }
+	};
+	// </script>
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	var __vue_styles__ = {}
+	__vue_script__ = __webpack_require__(22)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src\\js\\component\\timePicker\\timePickerOption.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(42)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
+	if (__vue_template__) {
+	__vue_options__.template = __vue_template__
+	}
+	if (!__vue_options__.computed) __vue_options__.computed = {}
+	Object.keys(__vue_styles__).forEach(function (key) {
+	var module = __vue_styles__[key]
+	__vue_options__.computed[key] = function () { return module }
+	})
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  var id = "_v-0086887b/timePickerOption.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _defineProperty2 = __webpack_require__(23);
+
+	var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// <template lang="html">
+	//     <div :class="wrapClasses">
+	//         <div :class="[prefix+'-inner',{[prefix+'-2-columns']: !hasSeconds}]">
+	//             <div :class="prefix+'-input-wrap'">
+	//                 <input :class="prefix+'-input'" placeholder="请选择时间" v-el:time-picker-panel v-model="timeValue">
+	//                 <a :class="prefix+'-clear-btn'" role="button" title="清除" @click="clearTime"></a>
+	//             </div>
+	//             <div :class="prefix+'-combobox'">
+	//                 <div :class="prefix+'-select'">
+	//                     <ul @mouseover="createSelection($els.timePickerPanel, 0, 2)">
+	//                         <li v-for="$index in 24" @click="timePicker('H', $event)" v-show="showLi($index, 'H')" :class="selectedCls(H, $index, 'H')" v-text="($index<10?'0':'')+$index"></li>
+	//                     </ul>
+	//                 </div>
+	//                 <div :class="prefix+'-select'">
+	//                     <ul @mouseover="createSelection($els.timePickerPanel, 3, 5)">
+	//                         <li v-for="$index in 60" @click="timePicker('M', $event)" v-show="showLi($index, 'M')" :class="selectedCls(M, $index, 'M')" v-text="($index<10?'0':'')+$index"></li>
+	//                     </ul>
+	//                 </div>
+	//                 <div :class="prefix+'-select'" v-if="hasSeconds">
+	//                     <ul @mouseover="createSelection($els.timePickerPanel, 6, 8)">
+	//                         <li v-for="$index in 60" @click="timePicker('S', $event)" v-show="showLi($index, 'S')" :class="selectedCls(S, $index, 'S')" v-text="($index<10?'0':'')+$index"></li>
+	//                     </ul>
+	//                 </div>
+	//             </div>
+	//         </div>
+	//     </div>
+	// </template>
+	//
+	// <script>
+	exports.default = {
+	    data: function data() {
+	        return {
+	            H: '00',
+	            M: '00',
+	            S: '00',
+	            hasSeconds: true,
+	            startH: 0,
+	            startM: 0,
+	            startS: 0,
+	            endH: 23,
+	            endM: 59,
+	            endS: 59
+	        };
+	    },
+	    props: {
+	        prefix: {
+	            type: String,
+	            default: 'ant-time-picker-panel'
+	        },
+	        selected: Boolean,
+	        localFormat: {
+	            type: String,
+	            default: 'HH:mm:ss'
+	        },
+	        startTime: {
+	            type: String,
+	            default: '00:00'
+	        },
+	        endTime: {
+	            type: String,
+	            default: '23:59'
+	        },
+	        value: String,
+	        timeValue: String,
+	        disabledM: Array,
+	        disabledS: Array
+	    },
+	    ready: function ready() {
+	        this.timeRange();
+	    },
+
+	    computed: {
+	        wrapClasses: function wrapClasses() {
+	            return ['' + this.prefix + (this.prefix.includes('-panel') ? '' : '-panel'), this.prefix + '-placement-bottomLeft', (0, _defineProperty3.default)({}, this.prefix + '-narrow', !this.hasSeconds)];
+	        }
+	    },
+	    watch: {
+	        selected: function selected(Boolean) {
+	            if (Boolean) {
+	                if (!this.timeValue) {
+	                    var curDate = new Date();
+	                    this.$set('H', this.dealTime(curDate.getHours()));
+	                    this.$set('M', this.dealTime(curDate.getMinutes()));
+	                    this.$set('S', this.dealTime(curDate.getSeconds()));
+	                } else {
+	                    var tArr = this.timeValue.split(':');
+	                    tArr[0] && this.$set('H', tArr[0]);
+	                    tArr[1] && this.$set('M', tArr[1]);
+	                    tArr[2] && this.$set('S', tArr[2]);
+	                }
+	                this.$nextTick(function () {
+	                    var t = document.getElementsByClassName(this.prefix + '-select-option-selected');
+	                    for (var i in t) {
+	                        this.setScrollTop(t[i]);
+	                    }
+	                });
+	                if (this.localFormat === 'HH:mm') {
+	                    this.$set('hasSeconds', false);
+	                }
+	                this.createSelection(this.$els.timePickerPanel);
+	            }
+	        }
+	    },
+	    methods: {
+	        timePicker: function timePicker(type, e) {
+	            if (e.target.classList.contains(this.prefix + '-select-option-disabled')) return;
+	            this.setScrollTop(e.target);
+	            this.$set(type, e.target.textContent);
+	            if (this.hasSeconds) {
+	                this.$set('timeValue', this.H + ':' + this.M + ':' + this.S);
+	            } else {
+	                this.$set('timeValue', this.H + ':' + this.M);
+	            }
+	        },
+	        setScrollTop: function setScrollTop(elem) {
+	            var top = elem.offsetTop;
+	            elem.parentElement && (elem.parentElement.parentElement.scrollTop = top);
+	        },
+	        selectedCls: function selectedCls(Num, curNum, type) {
+	            var cls = '';
+	            if (curNum < this['start' + type] || curNum > this['end' + type]) {
+	                cls += this.prefix + '-select-option-disabled ';
+	            }
+	            if (curNum * 1 === Num * 1) {
+	                cls += this.prefix + '-select-option-selected ';
+	            }
+	            return cls;
+	        },
+	        showLi: function showLi(curNum, type) {
+	            var hasNum = -1;
+	            var show = true;
+	            hasNum = this['disabled' + type] ? this['disabled' + type].indexOf(curNum) : -1;
+	            if (hasNum > -1) {
+	                show = false;
+	            }
+	            return show;
+	        },
+	        clearTime: function clearTime() {
+	            this.$set('timeValue', '');
+	            this.$set('selected', false);
+	        },
+	        dealTime: function dealTime(num) {
+	            var t = num;
+	            if (num < 10) {
+	                t = '0' + t;
+	            }
+	            return t;
+	        },
+	        createSelection: function createSelection(field, start, end) {
+	            if (field.createTextRange) {
+	                var selRange = field.createTextRange();
+	                selRange.collapse(true);
+	                selRange.moveStart('character', start);
+	                selRange.moveEnd('character', end);
+	                selRange.select();
+	                field.focus();
+	            } else if (field.setSelectionRange) {
+	                field.focus();
+	                field.setSelectionRange(start, end);
+	            } else if (typeof field.selectionStart !== 'undefined') {
+	                field.selectionStart = start;
+	                field.selectionEnd = end;
+	                field.focus();
+	            }
+	        },
+	        timeRange: function timeRange() {
+	            var sTime = this.startTime;
+	            var eTime = this.endTime;
+	            if (sTime < eTime) {
+	                var sArr = sTime.split(':');
+	                var eArr = eTime.split(':');
+	                var type = 'H';
+	                for (var i = 0; i < 3; i++) {
+	                    i == 1 && (type = 'M');
+	                    i == 2 && (type = 'S');
+	                    sArr[i] && this.$set('start' + type, sArr[i]);
+	                }
+	            }
+	        }
+	    }
+	};
+	// </script>
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	exports.__esModule = true;
+
+	var _defineProperty = __webpack_require__(24);
+
+	var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (obj, key, value) {
+	  if (key in obj) {
+	    (0, _defineProperty2.default)(obj, key, {
+	      value: value,
+	      enumerable: true,
+	      configurable: true,
+	      writable: true
+	    });
+	  } else {
+	    obj[key] = value;
+	  }
+
+	  return obj;
+	};
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(25), __esModule: true };
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(26);
+	var $Object = __webpack_require__(29).Object;
+	module.exports = function defineProperty(it, key, desc){
+	  return $Object.defineProperty(it, key, desc);
+	};
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var $export = __webpack_require__(27);
+	// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+	$export($export.S + $export.F * !__webpack_require__(37), 'Object', {defineProperty: __webpack_require__(33).f});
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global    = __webpack_require__(28)
+	  , core      = __webpack_require__(29)
+	  , ctx       = __webpack_require__(30)
+	  , hide      = __webpack_require__(32)
+	  , PROTOTYPE = 'prototype';
+
+	var $export = function(type, name, source){
+	  var IS_FORCED = type & $export.F
+	    , IS_GLOBAL = type & $export.G
+	    , IS_STATIC = type & $export.S
+	    , IS_PROTO  = type & $export.P
+	    , IS_BIND   = type & $export.B
+	    , IS_WRAP   = type & $export.W
+	    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+	    , expProto  = exports[PROTOTYPE]
+	    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+	    , key, own, out;
+	  if(IS_GLOBAL)source = name;
+	  for(key in source){
+	    // contains in native
+	    own = !IS_FORCED && target && target[key] !== undefined;
+	    if(own && key in exports)continue;
+	    // export native or passed
+	    out = own ? target[key] : source[key];
+	    // prevent global pollution for namespaces
+	    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+	    // bind timers to global for call from export context
+	    : IS_BIND && own ? ctx(out, global)
+	    // wrap global constructors for prevent change them in library
+	    : IS_WRAP && target[key] == out ? (function(C){
+	      var F = function(a, b, c){
+	        if(this instanceof C){
+	          switch(arguments.length){
+	            case 0: return new C;
+	            case 1: return new C(a);
+	            case 2: return new C(a, b);
+	          } return new C(a, b, c);
+	        } return C.apply(this, arguments);
+	      };
+	      F[PROTOTYPE] = C[PROTOTYPE];
+	      return F;
+	    // make static versions for prototype methods
+	    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+	    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+	    if(IS_PROTO){
+	      (exports.virtual || (exports.virtual = {}))[key] = out;
+	      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+	      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
+	    }
+	  }
+	};
+	// type bitmap
+	$export.F = 1;   // forced
+	$export.G = 2;   // global
+	$export.S = 4;   // static
+	$export.P = 8;   // proto
+	$export.B = 16;  // bind
+	$export.W = 32;  // wrap
+	$export.U = 64;  // safe
+	$export.R = 128; // real proto method for `library` 
+	module.exports = $export;
+
+/***/ },
+/* 28 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<h1 @click=\"changeColor\" :style=\"{color: activeColor}\">Hello {{msg}}</h1>\n";
+	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+	var global = module.exports = typeof window != 'undefined' && window.Math == Math
+	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	var core = module.exports = {version: '2.4.0'};
+	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// optional / simple context binding
+	var aFunction = __webpack_require__(31);
+	module.exports = function(fn, that, length){
+	  aFunction(fn);
+	  if(that === undefined)return fn;
+	  switch(length){
+	    case 1: return function(a){
+	      return fn.call(that, a);
+	    };
+	    case 2: return function(a, b){
+	      return fn.call(that, a, b);
+	    };
+	    case 3: return function(a, b, c){
+	      return fn.call(that, a, b, c);
+	    };
+	  }
+	  return function(/* ...args */){
+	    return fn.apply(that, arguments);
+	  };
+	};
+
+/***/ },
+/* 31 */
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+	  return it;
+	};
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var dP         = __webpack_require__(33)
+	  , createDesc = __webpack_require__(41);
+	module.exports = __webpack_require__(37) ? function(object, key, value){
+	  return dP.f(object, key, createDesc(1, value));
+	} : function(object, key, value){
+	  object[key] = value;
+	  return object;
+	};
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var anObject       = __webpack_require__(34)
+	  , IE8_DOM_DEFINE = __webpack_require__(36)
+	  , toPrimitive    = __webpack_require__(40)
+	  , dP             = Object.defineProperty;
+
+	exports.f = __webpack_require__(37) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+	  anObject(O);
+	  P = toPrimitive(P, true);
+	  anObject(Attributes);
+	  if(IE8_DOM_DEFINE)try {
+	    return dP(O, P, Attributes);
+	  } catch(e){ /* empty */ }
+	  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
+	  if('value' in Attributes)O[P] = Attributes.value;
+	  return O;
+	};
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(35);
+	module.exports = function(it){
+	  if(!isObject(it))throw TypeError(it + ' is not an object!');
+	  return it;
+	};
+
+/***/ },
+/* 35 */
+/***/ function(module, exports) {
+
+	module.exports = function(it){
+	  return typeof it === 'object' ? it !== null : typeof it === 'function';
+	};
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = !__webpack_require__(37) && !__webpack_require__(38)(function(){
+	  return Object.defineProperty(__webpack_require__(39)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+	});
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// Thank's IE8 for his funny defineProperty
+	module.exports = !__webpack_require__(38)(function(){
+	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+	});
+
+/***/ },
+/* 38 */
+/***/ function(module, exports) {
+
+	module.exports = function(exec){
+	  try {
+	    return !!exec();
+	  } catch(e){
+	    return true;
+	  }
+	};
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var isObject = __webpack_require__(35)
+	  , document = __webpack_require__(28).document
+	  // in old IE typeof document.createElement is 'object'
+	  , is = isObject(document) && isObject(document.createElement);
+	module.exports = function(it){
+	  return is ? document.createElement(it) : {};
+	};
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.1 ToPrimitive(input [, PreferredType])
+	var isObject = __webpack_require__(35);
+	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+	// and the second argument - flag - preferred type is a string
+	module.exports = function(it, S){
+	  if(!isObject(it))return it;
+	  var fn, val;
+	  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+	  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+	  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+	  throw TypeError("Can't convert object to primitive value");
+	};
+
+/***/ },
+/* 41 */
+/***/ function(module, exports) {
+
+	module.exports = function(bitmap, value){
+	  return {
+	    enumerable  : !(bitmap & 1),
+	    configurable: !(bitmap & 2),
+	    writable    : !(bitmap & 4),
+	    value       : value
+	  };
+	};
+
+/***/ },
+/* 42 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div :class=\"wrapClasses\">\n    <div :class=\"[prefix+'-inner',{[prefix+'-2-columns']: !hasSeconds}]\">\n        <div :class=\"prefix+'-input-wrap'\">\n            <input :class=\"prefix+'-input'\" placeholder=\"请选择时间\" v-el:time-picker-panel v-model=\"timeValue\">\n            <a :class=\"prefix+'-clear-btn'\" role=\"button\" title=\"清除\" @click=\"clearTime\"></a>\n        </div>\n        <div :class=\"prefix+'-combobox'\">\n            <div :class=\"prefix+'-select'\">\n                <ul @mouseover=\"createSelection($els.timePickerPanel, 0, 2)\">\n                    <li v-for=\"$index in 24\" @click=\"timePicker('H', $event)\" v-show=\"showLi($index, 'H')\" :class=\"selectedCls(H, $index, 'H')\" v-text=\"($index<10?'0':'')+$index\"></li>\n                </ul>\n            </div>\n            <div :class=\"prefix+'-select'\">\n                <ul @mouseover=\"createSelection($els.timePickerPanel, 3, 5)\">\n                    <li v-for=\"$index in 60\" @click=\"timePicker('M', $event)\" v-show=\"showLi($index, 'M')\" :class=\"selectedCls(M, $index, 'M')\" v-text=\"($index<10?'0':'')+$index\"></li>\n                </ul>\n            </div>\n            <div :class=\"prefix+'-select'\" v-if=\"hasSeconds\">\n                <ul @mouseover=\"createSelection($els.timePickerPanel, 6, 8)\">\n                    <li v-for=\"$index in 60\" @click=\"timePicker('S', $event)\" v-show=\"showLi($index, 'S')\" :class=\"selectedCls(S, $index, 'S')\" v-text=\"($index<10?'0':'')+$index\"></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>\n";
+
+/***/ },
+/* 43 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.getScroll = getScroll;
+	exports.getOffset = getOffset;
+	exports.closeByElement = closeByElement;
+	//返回当前页面相对于窗口显示区左上角的 X ，Y 的位置
+	function getScroll(top) {
+	  var ret = window['page' + (top ? 'Y' : 'X') + 'Offset'];
+	  var method = 'scroll' + (top ? 'Top' : 'Left');
+	  if (typeof ret !== 'number') {
+	    var d = window.document;
+	    // ie6,7,8 standard mode
+	    ret = d.documentElement[method];
+	    if (typeof ret !== 'number') {
+	      // quirks mode
+	      ret = d.body[method];
+	    }
+	  }
+	  return ret;
+	}
+
+	//获取元素top,left,right,bottom的绝对位置
+	function getOffset(element) {
+	  var rect = element.getBoundingClientRect();
+	  var body = document.body;
+	  var clientTop = element.clientTop || body.clientTop || 0;
+	  var clientLeft = element.clientLeft || body.clientLeft || 0;
+	  var scrollTop = getScroll(true);
+	  var scrollLeft = getScroll();
+
+	  return {
+	    top: rect.top + scrollTop - clientTop,
+	    left: rect.left + scrollLeft - clientLeft,
+	    right: rect.right + scrollLeft - clientLeft,
+	    bottom: rect.bottom + scrollTop - clientTop
+	  };
+	}
+
+	var closest = function closest(elem, fn) {
+	  return elem && elem !== document && (fn(elem) ? true : closest(elem.parentNode, fn));
+	};
+	//判断是否点击了目标元素elem 可以是一个元素数组
+	function closeByElement(target, elem) {
+	  if (!(elem instanceof Array)) {
+	    elem = [elem];
+	  }
+	  return closest(target, function (el) {
+	    return elem.some(function (d) {
+	      return el === d;
+	    });
+	  });
+	}
+
+/***/ },
+/* 44 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<span :class=\"wrapClasses\">\n    <input type=\"text\" class=\"ant-time-picker-input\" placeholder=\"请选择时间\" @click=\"timePicker\" v-model=\"value\" v-el:time-picker readonly disabled=\"{{disabled}}\">\n    <span class=\"ant-time-picker-icon\"></span>\n</span>\n<time-picker-node transition=\"fade\" v-show=\"selected\" :selected.sync=\"selected\" :style=\"style\" :time-value.sync=\"value\" :local-format=\"format\" :start-time=\"startTime\" :end-time=\"endTime\" :disabled-m=\"disabledMinutes\" :disabled-s=\"disabledSeconds\" v-el:time-picker-option></time-picker-node>\n";
+
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(46);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(48)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./timePicker.less", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/less-loader/index.js!./timePicker.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(47)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".ant-time-picker-panel {\n  max-width: 168px;\n  z-index: 1050;\n  position: absolute;\n}\n.ant-time-picker-panel-inner {\n  display: inline-block;\n  position: relative;\n  outline: none;\n  list-style: none;\n  font-size: 12px;\n  text-align: left;\n  background-color: #fff;\n  border-radius: 4px;\n  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);\n  background-clip: padding-box;\n  line-height: 1.5;\n  overflow: hidden;\n  left: -2px;\n}\n.ant-time-picker-panel-input {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  width: 100%;\n  cursor: auto;\n  line-height: 1.5;\n  outline: 0;\n}\n.ant-time-picker-panel-input-wrap {\n  box-sizing: border-box;\n  position: relative;\n  padding: 6px;\n  border-bottom: 1px solid #e9e9e9;\n}\n.ant-time-picker-panel-input-invalid {\n  border-color: red;\n}\n.ant-time-picker-panel-clear-btn {\n  position: absolute;\n  right: 5px;\n  cursor: pointer;\n  overflow: hidden;\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  line-height: 20px;\n  top: 5px;\n  margin: 0;\n}\n.ant-time-picker-panel-clear-btn:after {\n  font-size: 12px;\n  color: #ccc;\n  display: inline-block;\n  line-height: 1;\n  width: 20px;\n  transition: color 0.3s ease;\n  font-family: 'anticon';\n  text-rendering: optimizeLegibility;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  content: \"\\E62E\";\n}\n.ant-time-picker-panel-clear-btn:hover:after {\n  color: #999;\n}\n.ant-time-picker-panel-narrow .ant-time-picker-panel-input-wrap {\n  max-width: 111px;\n}\n.ant-time-picker-panel-select {\n  float: left;\n  font-size: 12px;\n  border: 1px solid #e9e9e9;\n  border-width: 0 1px;\n  margin-left: -1px;\n  box-sizing: border-box;\n  width: 56px;\n  overflow: hidden;\n  position: relative;\n}\n.ant-time-picker-panel-select:hover {\n  overflow-y: auto;\n}\n.ant-time-picker-panel-select:first-child {\n  border-left: 0;\n  margin-left: 0;\n}\n.ant-time-picker-panel-select:last-child {\n  border-right: 0;\n}\n.ant-time-picker-panel-select ul {\n  list-style: none;\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  max-height: 144px;\n}\n.ant-time-picker-panel-select li {\n  list-style: none;\n  box-sizing: content-box;\n  margin: 0;\n  padding: 0 0 0 16px;\n  width: 100%;\n  height: 24px;\n  line-height: 24px;\n  text-align: left;\n  cursor: pointer;\n  user-select: none;\n  transition: background 0.3s ease;\n}\n.ant-time-picker-panel-select li:last-child:after {\n  content: '';\n  height: 120px;\n  display: block;\n}\n.ant-time-picker-panel-select li:hover {\n  background: #ebf5fd;\n}\nli.ant-time-picker-panel-select-option-selected {\n  background: #f7f7f7;\n  font-weight: bold;\n}\nli.ant-time-picker-panel-select-option-disabled {\n  color: #ccc;\n}\nli.ant-time-picker-panel-select-option-disabled:hover {\n  background: transparent;\n  cursor: not-allowed;\n}\n.ant-time-picker-panel.slide-up-enter.slide-up-enter-active.ant-time-picker-panel-placement-topLeft,\n.ant-time-picker-panel.slide-up-enter.slide-up-enter-active.ant-time-picker-panel-placement-topRight,\n.ant-time-picker-panel.slide-up-appear.slide-up-appear-active.ant-time-picker-panel-placement-topLeft,\n.ant-time-picker-panel.slide-up-appear.slide-up-appear-active.ant-time-picker-panel-placement-topRight {\n  animation-name: antSlideDownIn;\n}\n.ant-time-picker-panel.slide-up-enter.slide-up-enter-active.ant-time-picker-panel-placement-bottomLeft,\n.ant-time-picker-panel.slide-up-enter.slide-up-enter-active.ant-time-picker-panel-placement-bottomRight,\n.ant-time-picker-panel.slide-up-appear.slide-up-appear-active.ant-time-picker-panel-placement-bottomLeft,\n.ant-time-picker-panel.slide-up-appear.slide-up-appear-active.ant-time-picker-panel-placement-bottomRight {\n  animation-name: antSlideUpIn;\n}\n.ant-time-picker-panel.slide-up-leave.slide-up-leave-active.ant-time-picker-panel-placement-topLeft,\n.ant-time-picker-panel.slide-up-leave.slide-up-leave-active.ant-time-picker-panel-placement-topRight {\n  animation-name: antSlideDownOut;\n}\n.ant-time-picker-panel.slide-up-leave.slide-up-leave-active.ant-time-picker-panel-placement-bottomLeft,\n.ant-time-picker-panel.slide-up-leave.slide-up-leave-active.ant-time-picker-panel-placement-bottomRight {\n  animation-name: antSlideUpOut;\n}\n.ant-time-picker {\n  position: relative;\n  display: inline-block;\n  outline: none;\n  font-size: 12px;\n  transition: opacity 0.3s ease;\n}\n.ant-time-picker-input {\n  position: relative;\n  display: inline-block;\n  padding: 4px 7px;\n  width: 100%;\n  height: 28px;\n  cursor: text;\n  font-size: 12px;\n  line-height: 1.5;\n  color: #666;\n  background-color: #fff;\n  background-image: none;\n  border: 1px solid #d9d9d9;\n  border-radius: 4px;\n  transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);\n  width: 100px;\n}\n.ant-time-picker-input::-moz-placeholder {\n  color: #ccc;\n  opacity: 1;\n}\n.ant-time-picker-input:-ms-input-placeholder {\n  color: #ccc;\n}\n.ant-time-picker-input::-webkit-input-placeholder {\n  color: #ccc;\n}\n.ant-time-picker-input:hover {\n  border-color: #5eafed;\n}\n.ant-time-picker-input:focus {\n  border-color: #5eafed;\n  outline: 0;\n  box-shadow: 0 0 0 2px rgba(54, 155, 233, 0.2);\n}\n.ant-time-picker-input[disabled] {\n  background-color: #f7f7f7;\n  opacity: 1;\n  cursor: not-allowed;\n  color: #ccc;\n}\n.ant-time-picker-input[disabled]:hover {\n  border-color: #e1e1e1;\n}\ntextarea.ant-time-picker-input {\n  max-width: 100%;\n  height: auto;\n  vertical-align: bottom;\n}\n.ant-time-picker-input-lg {\n  padding: 6px 7px;\n  height: 32px;\n}\n.ant-time-picker-input-sm {\n  padding: 1px 7px;\n  height: 22px;\n  border-radius: 2px;\n}\n.ant-time-picker-large .ant-time-picker-input {\n  padding: 6px 7px;\n  height: 32px;\n}\n.ant-time-picker-small .ant-time-picker-input {\n  padding: 1px 7px;\n  height: 22px;\n  border-radius: 2px;\n}\n.ant-time-picker-open {\n  opacity: 0;\n}\n.ant-time-picker-icon {\n  position: absolute;\n  user-select: none;\n  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);\n  width: 12px;\n  height: 12px;\n  line-height: 12px;\n  right: 8px;\n  color: #999;\n  top: 50%;\n  margin-top: -6px;\n}\n.ant-time-picker-icon:after {\n  content: \"\\E641\";\n  font-family: \"anticon\";\n  font-size: 12px;\n  color: #999;\n  display: inline-block;\n  line-height: 1;\n  vertical-align: bottom;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 47 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 48 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 49 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<!-- <h1 @click=\"changeColor\" :style=\"{color: activeColor}\">Hello {{msg}}</h1> -->\n<div class=\"container-fluid\">\n\t<!-- search -->\n\t\t<div class=\"well well-sm\">\n\t\t\t<form class=\"form-horizontal\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-lg-10 col-sm-10 text-nowrap\">\n\t\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">项目名称：</label>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t\t                    <input type=\"text\" class=\"form-control\" ms-duplex=\"input\" ms-on-focus=\"focus\"/>\n\t\t\t\t                </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">加入日期：</label>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" type=\"text\" id=\"dateTimePicker1\" class=\"form-control\" ms-duplex-string=\"StaticData.searchData.BeginDate\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\">至</span>\n\t\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" id=\"dateTimePicker2\" type=\"text\" class=\"form-control\" ms-duplex=\"StaticData.searchData.EndDate\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">负责人：</label>\n\t\t\t\t\t\t\t\t<div class=\"dropdown col-lg-8 col-sm-8\">\n\t\t\t\t                    <input type=\"text\" class=\"form-control input-sm\" ms-duplex=\"input\" ms-on-focus=\"focus\"/>\n\t\t\t\t                </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">地区：</label>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<select ms-duplex='StaticData.selectedProvince' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"00\">省</option>\n\t\t\t\t\t\t\t\t\t\t\t<option v-for=\"province in Provinces\" :value=\"province.ProvinceCode\">{{province.ProvinceName}}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<select ms-duplex='StaticData.selectedCity' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"0000\">市</option>\n\t\t\t\t\t\t\t\t\t\t\t<option v-for='city in Citys' :value=\"city.CityCode\">{{city.CityName}}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<select ms-duplex='StaticData.selectedDistrict' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"000000\">县</option>\n\t\t\t\t\t\t\t\t\t\t\t<option v-for=\"district in Districts\" ms-attr-value=\"district.DistrictCode\">{{district.DistrictName}}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-2 col-sm-2 text-right\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary btn-sm\" ms-click=\"search\"><i class=\"glyphicon glyphicon-search\"></i> 搜索</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t\t<time-picker></time-picker>\n\t<!-- /.search -->\n\t</div>\n";
 
 /***/ }
 /******/ ]);
