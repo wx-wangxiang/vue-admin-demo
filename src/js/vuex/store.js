@@ -42,7 +42,7 @@ const store = new Vuex.Store({
 							DistrictName: '王府井'
 						}]
 	},
-	mutation: {
+	mutations: {
 		initData(state) {
 			$.ajax({
 				url: '/api/Home/GetAllProvinces',
@@ -54,6 +54,9 @@ const store = new Vuex.Store({
 					console.log('ok');
 				}
 			})
+		},
+		submit(state) {
+			console.log(state.BeginDate)
 		}
 	}
 })

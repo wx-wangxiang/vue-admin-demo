@@ -148,7 +148,9 @@
 								todayBtn: true
 							})
 							.on('changeDate', function(evt){
-								self.set(evt.date.valueOf())
+								//self.set(evt.date.valueOf())
+								self.$store.commit('submit');
+								//self.$store.state.BeginDate = evt.date.valueOf();
 							})
 		                console.log('bind');
 		            },
@@ -175,7 +177,8 @@
 								todayBtn: true
 							})
 							.on('changeDate', function(evt){
-								self.set(evt.date.valueOf());
+								//self.set(evt.date.valueOf());
+								self.$store.state.EndDate = evt.date.valueOf();
 							})
 						console.log('bind');
 					},
@@ -196,8 +199,9 @@
 				},
 				search(e) {
 					e && e.preventDefault();
-					console.log(this.BeginDate);
-					console.log(this.ProjectName);
+					this.$store.commit('submit');
+					/*console.log(this.BeginDate);
+					console.log(this.ProjectName);*/
 				}
 			}/*,
 			components: {timePicker},*/
