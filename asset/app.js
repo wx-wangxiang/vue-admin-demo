@@ -21281,7 +21281,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-5e03f3bf/main.vue"
+	  var id = "_v-6c5a4da0/main.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -21458,8 +21458,8 @@
 						todayBtn: true
 					}).on('changeDate', function (evt) {
 						//self.set(evt.date.valueOf())
-						self.$store.commit('submit');
-						//self.$store.state.BeginDate = evt.date.valueOf();
+						self.vm.$store.commit('beginDateChange', evt.date);
+						//self.vm.$store.state.BeginDate = evt.date.valueOf();
 					});
 					console.log('bind');
 				},
@@ -23880,6 +23880,9 @@
 						console.log('ok');
 					}
 				});
+			},
+			beginDateChange: function beginDateChange(state, value) {
+				state.BeginDate = value;
 			},
 			submit: function submit(state) {
 				console.log(state.BeginDate);

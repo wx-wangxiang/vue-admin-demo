@@ -149,8 +149,8 @@
 							})
 							.on('changeDate', function(evt){
 								//self.set(evt.date.valueOf())
-								self.$store.commit('submit');
-								//self.$store.state.BeginDate = evt.date.valueOf();
+								self.vm.$store.commit('beginDateChange', evt.date.valueOf());
+								//self.vm.$store.state.BeginDate = evt.date.valueOf();
 							})
 		                console.log('bind');
 		            },

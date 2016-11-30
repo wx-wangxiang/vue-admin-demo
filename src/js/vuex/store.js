@@ -55,6 +55,9 @@ const store = new Vuex.Store({
 				}
 			})
 		},
+		beginDateChange(state, value) {
+			state.BeginDate = value;
+		},
 		submit(state) {
 			console.log(state.BeginDate)
 		}
