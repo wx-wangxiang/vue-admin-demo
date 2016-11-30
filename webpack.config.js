@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'src/js/app');
@@ -86,6 +87,11 @@ module.exports = {
 			filename: 'index.html',
 			chunks: ['app'],
 			inject: 'body'
+		}),
+		new webpack.ProvidePlugin({
+		    $: "jquery",
+		    jQuery: "jquery",
+		    "window.jQuery": "jquery"
 		})
 	],
 	vue: {
