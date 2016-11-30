@@ -28,8 +28,8 @@
 						<div class="col-lg-3 col-sm-4">
 							<div class="form-group form-group-sm">
 								<label class="control-label col-lg-4 col-sm-4">负责人：</label>
-								<div class="dropdown col-lg-8 col-sm-8">
-				                    <input type="text" class="form-control input-sm" ms-duplex="input" ms-on-focus="focus"/>
+								<div class="col-lg-8 col-sm-8">
+				                    <input type="text" class="form-control input-sm" ms-duplex="input"/>
 				                </div>
 							</div>
 						</div>
@@ -75,18 +75,10 @@
 	require('../../css/components/timePicker.less');*/
 	import './bootstrap-datetimepicker.min.js';
 	import './bootstrap-datetimepicker.zh-CN.js';
-	$.ajax({
-		url: '/api/Home/GetAllProvinces',
-		type: 'get',
-		data: {},
-		dataType: 'json',
-		cache: false,
-		success: function(){
-			console.log('ok');
-		}
-	})
+	import store from '../vuex/store.js';
+	import {mapState} from 'vuex';
         export default{
-			data() {
+			/*data() {
 				return {
 					msg: 'world',
 					activeColor: 'red',
@@ -130,6 +122,17 @@
 					EndDate: '2016-11-30',
 					ProjectName: ''
 				}
+			},*/
+			store,
+			computed: {
+				...mapState({
+					ProjectName: 'ProjectName',
+					Provinces: 'Provinces',
+					Citys: 'Citys',
+					Districts: 'Districts',
+					BeginDate: 'BeginDate',
+					EndDate: 'EndDate'
+				})
 			},
 			directives: {
 				'datetimepickerfirst': {
@@ -199,68 +202,4 @@
 			}/*,
 			components: {timePicker},*/
 		}
-        /*var vml = new Vue({
-            el: '#div-container',
-            data: {
-                message: '2016-10-09 13:21'
-            }
-        });*/
-	/*export default{
-		data() {
-			return {
-				msg: 'world',
-				activeColor: 'red',
-				Provinces: [
-					{
-						ProvinceCode: '01',
-						ProvinceName: '北京'
-					},{
-						ProvinceCode: '02',
-						ProvinceName: '天津'
-					},{
-						ProvinceCode: '03',
-						ProvinceName: '上海'
-					}
-				],
-				Citys: [
-					{
-						CityCode: '0001',
-						CityName: '北京'
-					},{
-						CityCode: '0002',
-						CityName: '北京'
-					},{
-						CityCode: '0003',
-						CityName: '北京'
-					}
-				],
-				Districts: [
-					{
-						DistrictCode: '000001',
-						DistrictName: '东城区'
-					},{
-						DistrictCode: '000002',
-						DistrictName: '西城区'
-					},{
-						DistrictCode: '000003',
-						DistrictName: '王府井'
-					}
-				],
-				BeginDate: 'dsfdsfdf',
-				EndDate: '',
-				ProjectName: ''
-			}
-		},
-		components: {timePicker},
-		methods: {
-			changeColor() {
-				this.activeColor = this.activeColor === 'red' ? 'green' : 'red';
-			},
-			search(e) {
-				e && e.preventDefault();
-				console.log(this.BeginDate);
-				console.log(this.ProjectName);
-			}
-		}
-	}*/
 </script>
