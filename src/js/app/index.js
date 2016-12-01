@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Main from '../component/main';
+import search from '../component/search';
 
 new Vue({
 	el: 'body',
-	components: {Main}
+	components: {search}
 })
