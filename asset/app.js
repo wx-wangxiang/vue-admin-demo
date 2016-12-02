@@ -21265,7 +21265,7 @@
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\js\\component\\search.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(85)
+	__vue_template__ = __webpack_require__(87)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -21346,7 +21346,7 @@
 	// 							<div class="form-group form-group-sm">
 	// 								<label class="control-label col-lg-4 col-sm-4">负责人：</label>
 	// 								<div class="col-lg-8 col-sm-8">
-	// 				                    <input type="text" class="form-control input-sm" ms-duplex="input"/>
+	// 				                    <input type="text" class="form-control input-sm" v-model="PrincipalName"/>
 	// 				                </div>
 	// 							</div>
 	// 						</div>
@@ -21395,6 +21395,22 @@
 		},
 
 		computed: (0, _extends3.default)({
+			ProjectName: {
+				get: function get() {
+					return this.$store.state.search.ProjectName;
+				},
+				set: function set(value) {
+					this.$store.commit('projectNameUpdate', value);
+				}
+			},
+			PrincipalName: {
+				get: function get() {
+					return this.$store.state.search.PrincipalName;
+				},
+				set: function set(value) {
+					this.$store.commit('principalNameUpdate', value);
+				}
+			},
 			selectedProvince: {
 				get: function get() {
 					return this.$store.getters.selectedProvince;
@@ -21419,14 +21435,12 @@
 					this.$store.commit('districtUpdate', value);
 				}
 			}
-		}, (0, _vuex.mapState)({
-			ProjectName: 'ProjectName',
+		}, (0, _vuex.mapGetters)({
+			beginDate: 'beginDate',
+			endDate: 'endDate',
 			Provinces: 'Provinces',
 			Citys: 'Citys',
 			Districts: 'Districts'
-		}), (0, _vuex.mapGetters)({
-			beginDate: 'beginDate',
-			endDate: 'endDate'
 		})),
 		directives: {
 			'datetimepickerfirst': {
@@ -21488,10 +21502,12 @@
 			search: function search(e) {
 				e && e.preventDefault();
 				this.submit();
+				this.getData();
 			}
 		}, (0, _vuex.mapActions)({
 			initData: 'initData',
-			submit: 'submit'
+			submit: 'submit',
+			getData: 'getData'
 		}))
 	};
 	// </script>
@@ -23791,15 +23807,11 @@
 /* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-
-	var _stringify = __webpack_require__(83);
-
-	var _stringify2 = _interopRequireDefault(_stringify);
 
 	var _vue = __webpack_require__(1);
 
@@ -23809,11 +23821,27 @@
 
 	var _vuex2 = _interopRequireDefault(_vuex);
 
+	var _search_module = __webpack_require__(83);
+
+	var _search_module2 = _interopRequireDefault(_search_module);
+
+	var _list_module = __webpack_require__(86);
+
+	var _list_module2 = _interopRequireDefault(_list_module);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_vue2.default.use(_vuex2.default);
 
 	var store = new _vuex2.default.Store({
+		modules: {
+			search: _search_module2.default,
+			list: _list_module2.default
+		}
+	});
+	exports.default = store;
+
+	/*,
 		state: {
 			ProjectName: 'wang wang',
 			BeginDate: 1480557886049,
@@ -23824,7 +23852,195 @@
 			selectedDistrict: '000000', //选中的县
 			Provinces: [], //所有的省
 			Citys: [], //当前省下的市
-			Districts: [] //当前市下的县
+			Districts: [], //当前市下的县
+			AreaCode: ''
+		}*/ /*,
+	     getters: {
+	     beginDate: state => {
+	     const date = new Date(state.BeginDate);
+	     const year = date.getFullYear();
+	     const month = date.getMonth() + 1;
+	     const day = date.getDate();
+	     return year + '-' + month + '-' + day;
+	     },
+	     endDate: state => {
+	     const date = new Date(state.EndDate);
+	     const year = date.getFullYear();
+	     const month = date.getMonth() + 1;
+	     const day = date.getDate();
+	     return year + '-' + month + '-' + day;
+	     },
+	     selectedProvince: state => {
+	     return state.selectedProvince;
+	     },
+	     selectedCity: state => {
+	     return state.selectedCity;
+	     },
+	     selectedDistrict: state => {
+	     return state.selectedDistrict;
+	     }
+	     },
+	     mutations: {
+	     initData(state) {
+	     if(window.localStorage.getItem('Provinces')){
+	     state.Provinces = JSON.parse(window.localStorage.getItem('Provinces'));
+	     }else{
+	     $.ajax({
+	     	url: '/api/Home/GetAllProvinces',
+	     	type: 'get',
+	     	data: {},
+	     	dataType: 'json',
+	     	cache: false,
+	     	success: function(res){
+	     		if(res.Status && res.Code === 1){
+	     			state.Provinces = res.Data;
+	     			window.localStorage.setItem('Provinces', JSON.stringify(res.Data));
+	     		}else{
+	     			alert('接口出错了');
+	     		}
+	     	}
+	     })
+	     }
+	     if(!window.localStorage.getItem('Citys')){
+	     $.ajax({
+	     	url: '/api/Home/GetAllCities',
+	     	type: 'get',
+	     	data: {},
+	     	dataType: 'json',
+	     	cache: false,
+	     	success: function(res){
+	     		if(res.Status && res.Code === 1){
+	     			window.localStorage.setItem('Citys', JSON.stringify(res.Data));
+	     		}else{
+	     			alert('接口出错了');
+	     		}
+	     	}
+	     })
+	     }
+	     if(!window.localStorage.getItem('Districts')){
+	     $.ajax({
+	     	url: '/api/Home/GetAllDistricts',
+	     	type: 'get',
+	     	data: {},
+	     	dataType: 'json',
+	     	cache: false,
+	     	success: function(res){
+	     		if(res.Status && res.Code === 1){
+	     			window.localStorage.setItem('Districts', JSON.stringify(res.Data));
+	     		}else{
+	     			alert('接口出错了');
+	     		}
+	     	}
+	     })
+	     }
+	     },
+	     projectNameUpdate(state, value) {
+	     state.ProjectName = value;
+	     },
+	     principalNameUpdate(state, value) {
+	     state.PrincipalName = value;
+	     },
+	     beginDateChange(state, value) {
+	     state.BeginDate = value;
+	     },
+	     endDateChange(state, value) {
+	     state.EndDate = value;
+	     },
+	     provinceUpdate(state, value) {
+	     const citys = JSON.parse(window.localStorage.getItem('Citys'));
+	     state.selectedProvince = value;
+	     state.selectedCity = '0000';
+	     state.selectedDistrict = '000000';
+	     state.Citys = [];
+	     state.Districts = [];
+	     for(var i = 0; i < citys.length; i++){
+	     if(citys[i].ProvinceCode === value){
+	     	state.Citys.push(citys[i]);
+	     }
+	     }
+	     },
+	     cityUpdate(state, value) {
+	     const districts = JSON.parse(window.localStorage.getItem('Districts'));
+	     state.selectedCity = value;
+	     state.selectedDistrict = '000000';
+	     state.Districts = [];
+	     $.each(districts, function(index, item){
+	     if(item.CityCode === value){
+	     	state.Districts.push(item);
+	     }
+	     })
+	     },
+	     districtUpdate(state, value) {
+	     state.selectedDistrict = value;
+	     },
+	     getAreaCode(state) {
+	     function areaCode () {
+	     if(state.selectedDistrict !== '000000') {
+	     	return state.selectedDistrict;
+	     }else if(state.selectedCity !== '0000') {
+	     	return state.selectedCity;
+	     }else{
+	     	return state.selectedProvince;
+	     }
+	     };
+	     state.AreaCode = areaCode();
+	     },
+	     submit(state) {
+	     const Data = {
+	     ProjectName: state.ProjectName,
+	     BeginDate: state.BeginDate,
+	     EndDate: state.EndDate,
+	     PrincipalName: state.PrincipalName,
+	     AreaCode: state.AreaCode
+	     };
+	     console.log(Data);
+	     }
+	     },
+	     actions: {
+	     initData({commit}) {
+	     commit('initData');
+	     },
+	     getAreaCode({commit}) {
+	     commit('getAreaCode');
+	     },
+	     submit({dispatch, commit}) {
+	     dispatch('getAreaCode').then(() => {
+	     commit('submit');
+	     })
+	     commit('getAreaCode');
+	     commit('submit');
+	     }
+	     }*/
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _stringify = __webpack_require__(84);
+
+	var _stringify2 = _interopRequireDefault(_stringify);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var searchStore = {
+		state: {
+			ProjectName: 'wang wang xiang',
+			BeginDate: 1480557886049,
+			EndDate: 1480557886049,
+			PrincipalName: '',
+			selectedProvince: '00', //选中的省
+			selectedCity: '0000', //选中的市
+			selectedDistrict: '000000', //选中的县
+			Provinces: [], //所有的省
+			Citys: [], //当前省下的市
+			Districts: [], //当前市下的县
+			AreaCode: ''
 		},
 		getters: {
 			beginDate: function beginDate(state) {
@@ -23849,6 +24065,15 @@
 			},
 			selectedDistrict: function selectedDistrict(state) {
 				return state.selectedDistrict;
+			},
+			Provinces: function Provinces(state) {
+				return state.Provinces;
+			},
+			Citys: function Citys(state) {
+				return state.Citys;
+			},
+			Districts: function Districts(state) {
+				return state.Districts;
 			}
 		},
 		mutations: {
@@ -23905,6 +24130,12 @@
 					});
 				}
 			},
+			projectNameUpdate: function projectNameUpdate(state, value) {
+				state.ProjectName = value;
+			},
+			principalNameUpdate: function principalNameUpdate(state, value) {
+				state.PrincipalName = value;
+			},
 			beginDateChange: function beginDateChange(state, value) {
 				state.BeginDate = value;
 			},
@@ -23938,8 +24169,28 @@
 			districtUpdate: function districtUpdate(state, value) {
 				state.selectedDistrict = value;
 			},
+			getAreaCode: function getAreaCode(state) {
+				function areaCode() {
+					if (state.selectedDistrict !== '000000') {
+						return state.selectedDistrict;
+					} else if (state.selectedCity !== '0000') {
+						return state.selectedCity;
+					} else {
+						return state.selectedProvince;
+					}
+				};
+				state.AreaCode = areaCode();
+			},
 			submit: function submit(state) {
-				console.log(state.BeginDate);
+				var Data = {
+					ProjectName: state.ProjectName,
+					BeginDate: state.BeginDate,
+					EndDate: state.EndDate,
+					PrincipalName: state.PrincipalName,
+					AreaCode: state.AreaCode
+				};
+				console.log(Data);
+				console.log('ok了');
 			}
 		},
 		actions: {
@@ -23948,24 +24199,34 @@
 
 				commit('initData');
 			},
-			submit: function submit(_ref2) {
+			getAreaCode: function getAreaCode(_ref2) {
 				var commit = _ref2.commit;
 
+				commit('getAreaCode');
+			},
+			submit: function submit(_ref3) {
+				var dispatch = _ref3.dispatch,
+				    commit = _ref3.commit;
+
+				/*dispatch('getAreaCode').then(() => {
+	   	commit('submit');
+	   })*/
+				commit('getAreaCode');
 				commit('submit');
 			}
 		}
-	});
-	exports.default = store;
+	};
+	exports.default = searchStore;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 83 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(84), __esModule: true };
+	module.exports = { "default": __webpack_require__(85), __esModule: true };
 
 /***/ },
-/* 84 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core  = __webpack_require__(13)
@@ -23975,10 +24236,45 @@
 	};
 
 /***/ },
-/* 85 */
+/* 86 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"container-fluid\">\n\t<!-- search -->\n\t<div class=\"well well-sm\">\n\t\t<form class=\"form-horizontal\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-lg-10 col-sm-10 text-nowrap\">\n\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">项目名称：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t                    <input type=\"text\" class=\"form-control\" v-model=\"ProjectName\" />\n\t\t\t                </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">加入日期：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" type=\"text\" id=\"dateTimePicker1\" class=\"form-control\" v-datetimepickerfirst=\"beginDate\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\">至</span>\n\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" id=\"dateTimePicker2\" type=\"text\" class=\"form-control\" v-datetimepickersecond=\"endDate\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">负责人：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t                    <input type=\"text\" class=\"form-control input-sm\" ms-duplex=\"input\"/>\n\t\t\t                </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">地区：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedProvince' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"00\">省</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for=\"province in Provinces\" :value=\"province.ProvinceCode\">{{province.ProvinceName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedCity' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"0000\">市</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for='city in Citys' :value=\"city.CityCode\">{{city.CityName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedDistrict' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"000000\">县</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for=\"district in Districts\" :value=\"district.DistrictCode\">{{district.DistrictName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-lg-2 col-sm-2 text-right\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary btn-sm\" @click=\"search\"><i class=\"glyphicon glyphicon-search\"></i> 搜索</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\t<!-- /.search -->\n</div>\n";
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	var listStore = {
+		state: {
+			tableList: []
+		},
+		getters: {
+			tableList: function tableList(state) {
+				return state.tableList;
+			}
+		},
+		mutations: {
+			getData: function getData(state, data) {
+				console.log(data);
+			}
+		},
+		actions: {
+			getData: function getData(_ref) {
+				var rootState = _ref.rootState,
+				    commit = _ref.commit;
+
+				var data = rootState.search.ProjectName;
+				commit('getData', data);
+			}
+		}
+	};
+	exports.default = listStore;
+
+/***/ },
+/* 87 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"container-fluid\">\n\t<!-- search -->\n\t<div class=\"well well-sm\">\n\t\t<form class=\"form-horizontal\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-lg-10 col-sm-10 text-nowrap\">\n\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">项目名称：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t                    <input type=\"text\" class=\"form-control\" v-model=\"ProjectName\" />\n\t\t\t                </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">加入日期：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" type=\"text\" id=\"dateTimePicker1\" class=\"form-control\" v-datetimepickerfirst=\"beginDate\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\">至</span>\n\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" id=\"dateTimePicker2\" type=\"text\" class=\"form-control\" v-datetimepickersecond=\"endDate\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">负责人：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t                    <input type=\"text\" class=\"form-control input-sm\" v-model=\"PrincipalName\"/>\n\t\t\t                </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">地区：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedProvince' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"00\">省</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for=\"province in Provinces\" :value=\"province.ProvinceCode\">{{province.ProvinceName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedCity' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"0000\">市</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for='city in Citys' :value=\"city.CityCode\">{{city.CityName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedDistrict' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"000000\">县</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for=\"district in Districts\" :value=\"district.DistrictCode\">{{district.DistrictName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-lg-2 col-sm-2 text-right\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary btn-sm\" @click=\"search\"><i class=\"glyphicon glyphicon-search\"></i> 搜索</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\t<!-- /.search -->\n</div>\n";
 
 /***/ }
 /******/ ]);

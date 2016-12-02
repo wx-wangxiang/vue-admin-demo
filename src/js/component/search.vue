@@ -29,7 +29,7 @@
 							<div class="form-group form-group-sm">
 								<label class="control-label col-lg-4 col-sm-4">负责人：</label>
 								<div class="col-lg-8 col-sm-8">
-				                    <input type="text" class="form-control input-sm" ms-duplex="input"/>
+				                    <input type="text" class="form-control input-sm" v-model="PrincipalName"/>
 				                </div>
 							</div>
 						</div>
@@ -74,15 +74,29 @@
 	import './bootstrap-datetimepicker.min.js';
 	import './bootstrap-datetimepicker.zh-CN.js';
 	import store from '../vuex/store.js';
-	import {mapState} from 'vuex';
-	import {mapGetters} from 'vuex';
-	import {mapActions} from 'vuex';
+	import {mapState, mapGetters, mapActions} from 'vuex';
         export default{
 			store,
 			ready() {
 				this.$store.commit('initData');
 			},
 			computed: {
+				ProjectName: {
+					get() {
+						return this.$store.state.search.ProjectName;
+					},
+					set(value) {
+						this.$store.commit('projectNameUpdate', value);
+					}
+				},
+				PrincipalName: {
+					get() {
+						return this.$store.state.search.PrincipalName;
+					},
+					set(value) {
+						this.$store.commit('principalNameUpdate', value);
+					}
+				},
 				selectedProvince: {
 					get() {
 						return this.$store.getters.selectedProvince;
@@ -107,15 +121,12 @@
 						this.$store.commit('districtUpdate', value);
 					}
 				},
-				...mapState({
-					ProjectName: 'ProjectName',
+				...mapGetters({
+					beginDate: 'beginDate',
+					endDate: 'endDate',
 					Provinces: 'Provinces',
 					Citys: 'Citys',
 					Districts: 'Districts'
-				}),
-				...mapGetters({
-					beginDate: 'beginDate',
-					endDate: 'endDate'
 				})
 			},
 			directives: {
@@ -182,10 +193,12 @@
 				search(e) {
 					e && e.preventDefault();
 					this.submit();
+					this.getData();
 				},
 				...mapActions({
 					initData: 'initData',
-					submit: 'submit'
+					submit: 'submit',
+					getData: 'getData'
 				})
 			}
 		}

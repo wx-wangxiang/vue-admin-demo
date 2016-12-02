@@ -1,42 +1,6 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import searchStore from './search_module';
-import listStore from './list_module';
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
-	modules: {
-		search: searchStore,
-		list: listStore
-	}
-})
-export default  store; 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*,
+const searchStore = {
 	state: {
-		ProjectName: 'wang wang',
+		ProjectName: 'wang wang xiang',
 		BeginDate: 1480557886049,
 		EndDate: 1480557886049,
 		PrincipalName: '',
@@ -47,7 +11,7 @@ export default  store;
 		Citys: [], //当前省下的市
 		Districts: [], //当前市下的县
 		AreaCode: ''
-	}*//*,
+	},
 	getters: {
 		beginDate: state => {
 			const date = new Date(state.BeginDate);
@@ -71,6 +35,15 @@ export default  store;
 		},
 		selectedDistrict: state => {
 			return state.selectedDistrict;
+		},
+		Provinces: state => {
+			return state.Provinces;
+		},
+		Citys: state => {
+			return state.Citys;
+		},
+		Districts: state => {
+			return state.Districts;
 		}
 	},
 	mutations: {
@@ -187,6 +160,7 @@ export default  store;
 				AreaCode: state.AreaCode
 			};
 			console.log(Data);
+			console.log('ok了');
 		}
 	},
 	actions: {
@@ -197,10 +171,12 @@ export default  store;
 			commit('getAreaCode');
 		},
 		submit({dispatch, commit}) {
-			dispatch('getAreaCode').then(() => {
+			/*dispatch('getAreaCode').then(() => {
 				commit('submit');
-			})
+			})*/
 			commit('getAreaCode');
 			commit('submit');
 		}
-	}*/
+	}
+}
+export default searchStore;
