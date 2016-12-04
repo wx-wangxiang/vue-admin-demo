@@ -61,7 +61,7 @@
 					</div>
 					<div class="col-lg-2 col-sm-2 text-right">
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-sm" @click="search"><i class="glyphicon glyphicon-search"></i> 搜索</button>
+							<button type="submit" class="btn btn-primary btn-sm" @click="search"><i class="glyphicon glyphicon-search"></i> 搜索{{'hello' | date}}</button>
 						</div>
 					</div>
 				</div>
@@ -73,6 +73,7 @@
 <script type="text/javascript">
 	import './bootstrap-datetimepicker.min.js';
 	import './bootstrap-datetimepicker.zh-CN.js';
+	import '../filter/dateFilter.js';
 	import store from '../vuex/store.js';
 	import {mapState, mapGetters, mapActions} from 'vuex';
         export default{

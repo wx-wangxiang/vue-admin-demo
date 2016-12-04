@@ -21265,7 +21265,7 @@
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\js\\component\\search.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(87)
+	__vue_template__ = __webpack_require__(88)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -21307,7 +21307,9 @@
 
 	__webpack_require__(81);
 
-	var _store = __webpack_require__(82);
+	__webpack_require__(82);
+
+	var _store = __webpack_require__(83);
 
 	var _store2 = _interopRequireDefault(_store);
 
@@ -21315,79 +21317,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// <template>
-	// 	<div class="container-fluid">
-	// 		<!-- search -->
-	// 		<div class="well well-sm">
-	// 			<form class="form-horizontal">
-	// 				<div class="row">
-	// 					<div class="col-lg-10 col-sm-10 text-nowrap">
-	// 						<div class="col-lg-3 col-sm-4">
-	// 							<div class="form-group form-group-sm">
-	// 								<label class="control-label col-lg-4 col-sm-4">项目名称：</label>
-	// 								<div class="col-lg-8 col-sm-8">
-	// 				                    <input type="text" class="form-control" v-model="ProjectName" />
-	// 				                </div>
-	// 							</div>
-	// 						</div>
-	// 						<div class="col-lg-6 col-sm-8">
-	// 							<div class="form-group form-group-sm">
-	// 								<label class="control-label col-lg-2 col-sm-2">加入日期：</label>
-	// 								<div class="col-lg-10 col-sm-10">
-	// 									<div class="input-group">
-	// 										<input readonly="readonly" type="text" id="dateTimePicker1" class="form-control" v-datetimepickerfirst="beginDate">
-	// 										<span class="input-group-addon">至</span>
-	// 										<input readonly="readonly" id="dateTimePicker2" type="text" class="form-control" v-datetimepickersecond="endDate">
-	// 									</div>
-	// 								</div>
-	// 							</div>
-	// 						</div>
-	// 						<div class="col-lg-3 col-sm-4">
-	// 							<div class="form-group form-group-sm">
-	// 								<label class="control-label col-lg-4 col-sm-4">负责人：</label>
-	// 								<div class="col-lg-8 col-sm-8">
-	// 				                    <input type="text" class="form-control input-sm" v-model="PrincipalName"/>
-	// 				                </div>
-	// 							</div>
-	// 						</div>
-	// 						<div class="col-lg-6 col-sm-8">
-	// 							<div class="form-group form-group-sm">
-	// 								<label class="control-label col-lg-2 col-sm-2">地区：</label>
-	// 								<div class="col-lg-10 col-sm-10">
-	// 									<div class="col-lg-4 col-sm-4">
-	// 										<select v-model='selectedProvince' class="form-control">
-	// 											<option value="00">省</option>
-	// 											<option v-for="province in Provinces" :value="province.ProvinceCode">{{province.ProvinceName}}</option>
-	// 										</select>
-	// 									</div>
-	// 									<div class="col-lg-4 col-sm-4">
-	// 										<select v-model='selectedCity' class="form-control">
-	// 											<option value="0000">市</option>
-	// 											<option v-for='city in Citys' :value="city.CityCode">{{city.CityName}}</option>
-	// 										</select>
-	// 									</div>
-	// 									<div class="col-lg-4 col-sm-4">
-	// 										<select v-model='selectedDistrict' class="form-control">
-	// 											<option value="000000">县</option>
-	// 											<option v-for="district in Districts" :value="district.DistrictCode">{{district.DistrictName}}</option>
-	// 										</select>
-	// 									</div>
-	// 								</div>
-	// 							</div>
-	// 						</div>
-	// 					</div>
-	// 					<div class="col-lg-2 col-sm-2 text-right">
-	// 						<div class="form-group">
-	// 							<button type="submit" class="btn btn-primary btn-sm" @click="search"><i class="glyphicon glyphicon-search"></i> 搜索</button>
-	// 						</div>
-	// 					</div>
-	// 				</div>
-	// 			</form>
-	// 		</div>
-	// 		<!-- /.search -->
-	// 	</div>
-	// </template>
-	// <script type="text/javascript">
 	exports.default = {
 		store: _store2.default,
 		ready: function ready() {
@@ -21511,6 +21440,79 @@
 		}))
 	};
 	// </script>
+	// <template>
+	// 	<div class="container-fluid">
+	// 		<!-- search -->
+	// 		<div class="well well-sm">
+	// 			<form class="form-horizontal">
+	// 				<div class="row">
+	// 					<div class="col-lg-10 col-sm-10 text-nowrap">
+	// 						<div class="col-lg-3 col-sm-4">
+	// 							<div class="form-group form-group-sm">
+	// 								<label class="control-label col-lg-4 col-sm-4">项目名称：</label>
+	// 								<div class="col-lg-8 col-sm-8">
+	// 				                    <input type="text" class="form-control" v-model="ProjectName" />
+	// 				                </div>
+	// 							</div>
+	// 						</div>
+	// 						<div class="col-lg-6 col-sm-8">
+	// 							<div class="form-group form-group-sm">
+	// 								<label class="control-label col-lg-2 col-sm-2">加入日期：</label>
+	// 								<div class="col-lg-10 col-sm-10">
+	// 									<div class="input-group">
+	// 										<input readonly="readonly" type="text" id="dateTimePicker1" class="form-control" v-datetimepickerfirst="beginDate">
+	// 										<span class="input-group-addon">至</span>
+	// 										<input readonly="readonly" id="dateTimePicker2" type="text" class="form-control" v-datetimepickersecond="endDate">
+	// 									</div>
+	// 								</div>
+	// 							</div>
+	// 						</div>
+	// 						<div class="col-lg-3 col-sm-4">
+	// 							<div class="form-group form-group-sm">
+	// 								<label class="control-label col-lg-4 col-sm-4">负责人：</label>
+	// 								<div class="col-lg-8 col-sm-8">
+	// 				                    <input type="text" class="form-control input-sm" v-model="PrincipalName"/>
+	// 				                </div>
+	// 							</div>
+	// 						</div>
+	// 						<div class="col-lg-6 col-sm-8">
+	// 							<div class="form-group form-group-sm">
+	// 								<label class="control-label col-lg-2 col-sm-2">地区：</label>
+	// 								<div class="col-lg-10 col-sm-10">
+	// 									<div class="col-lg-4 col-sm-4">
+	// 										<select v-model='selectedProvince' class="form-control">
+	// 											<option value="00">省</option>
+	// 											<option v-for="province in Provinces" :value="province.ProvinceCode">{{province.ProvinceName}}</option>
+	// 										</select>
+	// 									</div>
+	// 									<div class="col-lg-4 col-sm-4">
+	// 										<select v-model='selectedCity' class="form-control">
+	// 											<option value="0000">市</option>
+	// 											<option v-for='city in Citys' :value="city.CityCode">{{city.CityName}}</option>
+	// 										</select>
+	// 									</div>
+	// 									<div class="col-lg-4 col-sm-4">
+	// 										<select v-model='selectedDistrict' class="form-control">
+	// 											<option value="000000">县</option>
+	// 											<option v-for="district in Districts" :value="district.DistrictCode">{{district.DistrictName}}</option>
+	// 										</select>
+	// 									</div>
+	// 								</div>
+	// 							</div>
+	// 						</div>
+	// 					</div>
+	// 					<div class="col-lg-2 col-sm-2 text-right">
+	// 						<div class="form-group">
+	// 							<button type="submit" class="btn btn-primary btn-sm" @click="search"><i class="glyphicon glyphicon-search"></i> 搜索{{'hello' | date}}</button>
+	// 						</div>
+	// 					</div>
+	// 				</div>
+	// 			</form>
+	// 		</div>
+	// 		<!-- /.search -->
+	// 	</div>
+	// </template>
+	// <script type="text/javascript">
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
@@ -23809,6 +23811,22 @@
 
 	'use strict';
 
+	var _vue = __webpack_require__(1);
+
+	var _vue2 = _interopRequireDefault(_vue);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	_vue2.default.filter('date', function (value) {
+		return value + 'world';
+	});
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
@@ -23821,11 +23839,11 @@
 
 	var _vuex2 = _interopRequireDefault(_vuex);
 
-	var _search_module = __webpack_require__(83);
+	var _search_module = __webpack_require__(84);
 
 	var _search_module2 = _interopRequireDefault(_search_module);
 
-	var _list_module = __webpack_require__(86);
+	var _list_module = __webpack_require__(87);
 
 	var _list_module2 = _interopRequireDefault(_list_module);
 
@@ -24013,7 +24031,7 @@
 	     }*/
 
 /***/ },
-/* 83 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -24022,7 +24040,7 @@
 		value: true
 	});
 
-	var _stringify = __webpack_require__(84);
+	var _stringify = __webpack_require__(85);
 
 	var _stringify2 = _interopRequireDefault(_stringify);
 
@@ -24220,13 +24238,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 84 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(85), __esModule: true };
+	module.exports = { "default": __webpack_require__(86), __esModule: true };
 
 /***/ },
-/* 85 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var core  = __webpack_require__(13)
@@ -24236,7 +24254,7 @@
 	};
 
 /***/ },
-/* 86 */
+/* 87 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24271,10 +24289,10 @@
 	exports.default = listStore;
 
 /***/ },
-/* 87 */
+/* 88 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"container-fluid\">\n\t<!-- search -->\n\t<div class=\"well well-sm\">\n\t\t<form class=\"form-horizontal\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-lg-10 col-sm-10 text-nowrap\">\n\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">项目名称：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t                    <input type=\"text\" class=\"form-control\" v-model=\"ProjectName\" />\n\t\t\t                </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">加入日期：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" type=\"text\" id=\"dateTimePicker1\" class=\"form-control\" v-datetimepickerfirst=\"beginDate\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\">至</span>\n\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" id=\"dateTimePicker2\" type=\"text\" class=\"form-control\" v-datetimepickersecond=\"endDate\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">负责人：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t                    <input type=\"text\" class=\"form-control input-sm\" v-model=\"PrincipalName\"/>\n\t\t\t                </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">地区：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedProvince' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"00\">省</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for=\"province in Provinces\" :value=\"province.ProvinceCode\">{{province.ProvinceName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedCity' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"0000\">市</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for='city in Citys' :value=\"city.CityCode\">{{city.CityName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedDistrict' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"000000\">县</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for=\"district in Districts\" :value=\"district.DistrictCode\">{{district.DistrictName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-lg-2 col-sm-2 text-right\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary btn-sm\" @click=\"search\"><i class=\"glyphicon glyphicon-search\"></i> 搜索</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\t<!-- /.search -->\n</div>\n";
+	module.exports = "\n<div class=\"container-fluid\">\n\t<!-- search -->\n\t<div class=\"well well-sm\">\n\t\t<form class=\"form-horizontal\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-lg-10 col-sm-10 text-nowrap\">\n\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">项目名称：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t                    <input type=\"text\" class=\"form-control\" v-model=\"ProjectName\" />\n\t\t\t                </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">加入日期：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"input-group\">\n\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" type=\"text\" id=\"dateTimePicker1\" class=\"form-control\" v-datetimepickerfirst=\"beginDate\">\n\t\t\t\t\t\t\t\t\t<span class=\"input-group-addon\">至</span>\n\t\t\t\t\t\t\t\t\t<input readonly=\"readonly\" id=\"dateTimePicker2\" type=\"text\" class=\"form-control\" v-datetimepickersecond=\"endDate\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-3 col-sm-4\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-4 col-sm-4\">负责人：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-8 col-sm-8\">\n\t\t\t                    <input type=\"text\" class=\"form-control input-sm\" v-model=\"PrincipalName\"/>\n\t\t\t                </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-lg-6 col-sm-8\">\n\t\t\t\t\t\t<div class=\"form-group form-group-sm\">\n\t\t\t\t\t\t\t<label class=\"control-label col-lg-2 col-sm-2\">地区：</label>\n\t\t\t\t\t\t\t<div class=\"col-lg-10 col-sm-10\">\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedProvince' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"00\">省</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for=\"province in Provinces\" :value=\"province.ProvinceCode\">{{province.ProvinceName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedCity' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"0000\">市</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for='city in Citys' :value=\"city.CityCode\">{{city.CityName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-lg-4 col-sm-4\">\n\t\t\t\t\t\t\t\t\t<select v-model='selectedDistrict' class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"000000\">县</option>\n\t\t\t\t\t\t\t\t\t\t<option v-for=\"district in Districts\" :value=\"district.DistrictCode\">{{district.DistrictName}}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-lg-2 col-sm-2 text-right\">\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-primary btn-sm\" @click=\"search\"><i class=\"glyphicon glyphicon-search\"></i> 搜索{{'hello' | date}}</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\t<!-- /.search -->\n</div>\n";
 
 /***/ }
 /******/ ]);
