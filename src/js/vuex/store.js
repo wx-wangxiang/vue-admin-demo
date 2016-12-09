@@ -2,12 +2,14 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import searchStore from './search_module';
 import listStore from './list_module';
+import modalStore from './modal_module';
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
 	modules: {
 		search: searchStore,
-		list: listStore
+		list: listStore,
+		modal: modalStore
 	}
 })
 export default  store; 

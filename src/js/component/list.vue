@@ -26,16 +26,16 @@
 						<td>{{item.AreaName}}</td>
 						<td>{{item.PromoterCount}}人</td>
 						<td>
-							<a href="javascript:;" ms-if="IsLeader || item.EditAuth" ms-click="porEdit(item.ProjectID)" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-eye-open"></i> 推广员编辑</a>
-							<button type="button" ms-if="IsLeader || item.EditAuth" ms-click="businessEdit(item.ID, item.ProjectName)" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-pencil"></i> 业务参数编辑</button>
-							<a ms-if="IsLeader || item.EditAuth" href="javascript:;" ms-click="deletItem(item.ID, item.ProjectName)" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> 移除</a>
+							<a href="javascript:;" @click="porEdit(item.ProjectID)" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-eye-open"></i> 推广员编辑</a>
+							<button type="button" @click="businessEdit(item.ID, item.ProjectName)" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-pencil"></i> 业务参数编辑</button>
+							<a href="javascript:;" @click="deletItem(item.ID, item.ProjectName)" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> 移除</a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<div class="jumbotron jumbotron-w text-center" ms-visible="commonData.wait" ms-class="loading:commonData.wait"> </div>
+			<div class="jumbotron jumbotron-w text-center" v-if="wait" :class="{'loading': wait}"> </div>
 			<div class="panel-footer clearfix text-right">
-				<div ms-html="commonData.searchInfo" class="text-center"></div>
+				<div :html="searchInfo" class="text-center"></div>
 				<div id="page"></div>
 			</div>
 		</div>
@@ -45,17 +45,30 @@
 <script type="text/javascript">
 	import store from '../vuex/store.js'
 	import {mapGetters, mapActions} from 'vuex'
+	import './page.min.js'
 	export default{
 		store,
+		ready() {
+			this.initPage();
+		},
 		computed: {
 			...mapGetters({
+				wait: 'wait',
+				searchInfo: 'searchInfo',
 				tableList: 'tableList'
 			})
 		},
 		methods: {
 			addItem(id) {
 				console.log(id);
-			} 
+			},
+			...mapActions({
+				initPage: 'initPage',
+				businessEdit: 'businessEdit',
+				deletItem: 'deletItem',
+				porEdit: 'porEdit',
+				modalClose: 'modalClose'
+			})
 		}
 	}
 </script>
