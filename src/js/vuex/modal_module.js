@@ -1,3 +1,4 @@
+import router from '../router/router'
 const poreditStore = {
 	state: {
 		poerList: []
@@ -15,6 +16,9 @@ const poreditStore = {
 			$('#vue_dialog').modal('hide');
 			state.poerList = [];
 		},
+		closePricePage(state) {
+			router.go({name: 'poer'});
+		},
 		poerPageInit(state) {
 			$.ajax({
 				url: '/api/Promoter/GetListByProject',
@@ -26,9 +30,11 @@ const poreditStore = {
 					state.poerList = res.Data;
 				}
 			})
+			router.go({name: 'poer'});
 		},
 		pricePageInit(state, item) {
 			console.log(item.UserName, item.UserID);
+			router.go({name: 'price'});
 		}
 	},
 	actions: {
@@ -38,6 +44,11 @@ const poreditStore = {
 		},
 		porBusinessEdit({commit}, item) {
 			commit('pricePageInit', item);
+		},
+		addPrice({commit}) {},
+		submit({commit}) {},
+		closePricePage({commit}) {
+			commit('closePricePage')
 		},
 		modalClose({commit}) {
 			commit('modalClose');

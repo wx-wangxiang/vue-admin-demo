@@ -1,7 +1,7 @@
 <template>
 	<div class="modal-content">
 		<div class="modal-header">
-			<button type="button" @click="closePage" class="close">&times;</button>
+			<button type="button" @click="closePricePage" class="close">&times;</button>
 			<h4 class="modal-title">项目下推广员价格区间设置</h4>
 		</div>
 		<div class="modal-body">
@@ -30,7 +30,7 @@
 										<input type="text" readonly class="form-control input-sm" v-model="price.MinValue">
 									</td>
 									<td>
-										<input type="text" class="form-control input-sm" ms-duplex="price.MaxValue" @change="modify($index)">
+										<input type="text" class="form-control input-sm" v-model="price.MaxValue" @change="modify($index)">
 									</td>
 									<td>
 										<input type="text" class="form-control input-sm" v-model="price.Price" @change="digitLimit($index)">
@@ -58,19 +58,22 @@
 			</form>
 		</div>
 		<div class="modal-footer">
-			<button @click="closePage" class="btn btn-default btn-sm">取消</button>
+			<button @click="closePricePage" class="btn btn-default btn-sm">取消</button>
 			<button @click="submit" class="btn btn-primary btn-sm">提交</button>
 		</div>
 	</div>
 </template>
 <script type="text/javascript">
 	import store from '../vuex/store.js'
+	import {mapActions} from 'vuex'
 	export default {
 		store,
 		methods: {
-			closePage() {},
-			addPrice() {},
-			submit() {}
+			...mapActions({
+				closePricePage: 'closePricePage',
+				addPrice: 'addPrice',
+				submit: 'submit'
+			})
 		}
 	}
 </script>
