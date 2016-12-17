@@ -1,6 +1,5 @@
 <template>
 	<div class="container-fluid">
-		<!-- search -->
 		<div class="well well-sm">
 			<form class="form-horizontal">
 				<div class="row">
@@ -61,25 +60,24 @@
 					</div>
 					<div class="col-lg-2 col-sm-2 text-right">
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-sm" @click="search"><i class="glyphicon glyphicon-search"></i> 搜索{{'hello' | date}}</button>
+							<button type="submit" class="btn btn-primary btn-sm" @click="search"><i class="glyphicon glyphicon-search"></i> 搜索</button>
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
-		<!-- /.search -->
 	</div>
 </template>
 <script type="text/javascript">
-	import './bootstrap-datetimepicker.min.js';
-	import './bootstrap-datetimepicker.zh-CN.js';
+	import '../lib/bootstrap-datetimepicker.min.js';
+	import '../lib/bootstrap-datetimepicker.zh-CN.js';
 	import '../filter/dateFilter.js';
 	import store from '../vuex/store.js';
 	import {mapState, mapGetters, mapActions} from 'vuex';
         export default{
 			store,
 			ready() {
-				this.$store.commit('initData');
+				this.initData();
 			},
 			computed: {
 				ProjectName: {

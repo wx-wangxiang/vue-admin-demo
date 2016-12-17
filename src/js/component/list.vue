@@ -27,13 +27,15 @@
 						<td>{{item.PromoterCount}}人</td>
 						<td>
 							<a href="javascript:;" @click="porEdit(item.ProjectID)" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-eye-open"></i> 推广员编辑</a>
-							<button type="button" @click="businessEdit(item.ID, item.ProjectName)" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-pencil"></i> 业务参数编辑</button>
-							<a href="javascript:;" @click="deletItem(item.ID, item.ProjectName)" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> 移除</a>
+							<button type="button" @click="businessEdit({ID: item.ID, projectName: item.ProjectName})" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-pencil"></i> 业务参数编辑</button>
+							<a href="javascript:;" @click="deleteItem({ID: item.ID, projectName: item.ProjectName})" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> 移除</a>
 						</td>
+					</tr>
+					<tr>
+						<td colspan="6" style="height: 300px;" v-if="wait" :class="{'loading':wait}"></td>
 					</tr>
 				</tbody>
 			</table>
-			<div class="jumbotron jumbotron-w text-center" v-if="wait" :class="{'loading': wait}"> </div>
 			<div class="panel-footer clearfix text-right">
 				<div :html="searchInfo" class="text-center"></div>
 				<div id="page"></div>
@@ -45,7 +47,7 @@
 <script type="text/javascript">
 	import store from '../vuex/store.js'
 	import {mapGetters, mapActions} from 'vuex'
-	import './page.min.js'
+	import '../lib/page.min.js'
 	export default{
 		store,
 		ready() {
@@ -65,7 +67,7 @@
 			...mapActions({
 				initPage: 'initPage',
 				businessEdit: 'businessEdit',
-				deletItem: 'deletItem',
+				deleteItem: 'deleteItem',
 				porEdit: 'porEdit',
 				modalClose: 'modalClose'
 			})

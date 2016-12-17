@@ -131,6 +131,7 @@
 
 	_vue2.default.use(_vueRouter2.default);
 
+	//使用router.start()挂载，就不能使用 new Vue()这种方式实例化了
 	/*new Vue({
 		el: 'body',
 		components: {search, list, modal}
@@ -140,8 +141,7 @@
 		template: '<search></search><list></list><modal></modal>',
 		components: { search: _search2.default, list: _list2.default, modal: _modal2.default }
 	});
-	//注册组件
-	_vue2.default.component('app', App);
+
 	//挂载
 	_router2.default.start(App, 'app');
 
@@ -26591,11 +26591,27 @@
 
 	var poreditStore = {
 		state: {
-			poerList: []
+			wait: false,
+			searchInfo: '',
+			UserName: '',
+			poerList: [],
+			priceList: []
 		},
 		getters: {
+			modalWait: function modalWait(state) {
+				return state.wait;
+			},
+			modalSearchInfo: function modalSearchInfo(state) {
+				return state.searchInfo;
+			},
+			userName: function userName(state) {
+				return state.UserName;
+			},
 			poerList: function poerList(state) {
 				return state.poerList;
+			},
+			priceList: function priceList(state) {
+				return state.priceList;
 			}
 		},
 		mutations: {
@@ -26606,10 +26622,17 @@
 				$('#vue_dialog').modal('hide');
 				state.poerList = [];
 			},
+			addPrice: function addPrice(state) {
+				state.priceList.$set();
+			},
+			removePrice: function removePrice(state, price) {
+				state.priceList.$remove(price);
+			},
 			closePricePage: function closePricePage(state) {
 				_router2.default.go({ name: 'poer' });
 			},
 			poerPageInit: function poerPageInit(state) {
+				state.wait = true;
 				$.ajax({
 					url: '/api/Promoter/GetListByProject',
 					dataType: 'json',
@@ -26617,13 +26640,33 @@
 					data: {},
 					cache: false,
 					success: function success(res) {
+						state.wait = false;
 						state.poerList = res.Data;
+					},
+					error: function error(res) {
+						state.wait = false;
 					}
 				});
 				_router2.default.go({ name: 'poer' });
 			},
 			pricePageInit: function pricePageInit(state, item) {
+				state.wait = true;
 				console.log(item.UserName, item.UserID);
+				state.UserName = item.UserName;
+				$.ajax({
+					url: '/api/BusiMultisend/GetPriceListByUserID',
+					dataType: 'json',
+					type: 'get',
+					data: {},
+					cache: false,
+					success: function success(res) {
+						state.wait = false;
+						state.priceList = res.Data.PriceList;
+					},
+					error: function error(res) {
+						state.wait = false;
+					}
+				});
 				_router2.default.go({ name: 'price' });
 			}
 		},
@@ -26642,16 +26685,21 @@
 			addPrice: function addPrice(_ref3) {
 				var commit = _ref3.commit;
 			},
-			submit: function submit(_ref4) {
+			removePrice: function removePrice(_ref4, price) {
 				var commit = _ref4.commit;
+
+				commit('removePrice', price);
 			},
-			closePricePage: function closePricePage(_ref5) {
+			submit: function submit(_ref5) {
 				var commit = _ref5.commit;
+			},
+			closePricePage: function closePricePage(_ref6) {
+				var commit = _ref6.commit;
 
 				commit('closePricePage');
 			},
-			modalClose: function modalClose(_ref6) {
-				var commit = _ref6.commit;
+			modalClose: function modalClose(_ref7) {
+				var commit = _ref7.commit;
 
 				commit('modalClose');
 			}
@@ -27967,7 +28015,7 @@
 	// 			<table class="table table-bordered table-striped">
 	// 				<thead>
 	// 					<tr>
-	// 						<th>加入时间</th>
+	// 						<th>加入dsafdsad时间</th>
 	// 						<th>项目名称</th>
 	// 						<th>负责人</th>
 	// 						<th>地区</th>
@@ -28156,7 +28204,7 @@
 /* 102 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"container-fluid\">\n\t<div class=\"clearfix mb10\">\n\t\t<div class=\"pull-right\">\n\t\t\t<button type=\"button\" class=\"btn btn-success btn-sm\" @click=\"addItem('0')\"><i class=\"glyphicon glyphicon-plus\"></i> 新增项目</button>\n\t\t</div>\n\t</div>\n\t<!-- list -->\n\t<div class=\"panel panel-default\">\n\t\t<table class=\"table table-bordered table-striped\">\n\t\t\t<thead>\n\t\t\t\t<tr>\n\t\t\t\t\t<th>加入时间</th>\n\t\t\t\t\t<th>项目名称</th>\n\t\t\t\t\t<th>负责人</th>\n\t\t\t\t\t<th>地区</th>\n\t\t\t\t\t<th>项目推广员</th>\n\t\t\t\t\t<th>操作</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t<tr v-for=\"item in tableList\">\n\t\t\t\t\t<td>{{item.CreateTime}}</td>\n\t\t\t\t\t<td>{{item.ProjectName}}</td>\n\t\t\t\t\t<td>{{item.Principal}}</td>\n\t\t\t\t\t<td>{{item.AreaName}}</td>\n\t\t\t\t\t<td>{{item.PromoterCount}}人</td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<a href=\"javascript:;\" @click=\"porEdit(item.ProjectID)\" class=\"btn btn-xs btn-success\"><i class=\"glyphicon glyphicon-eye-open\"></i> 推广员编辑</a>\n\t\t\t\t\t\t<button type=\"button\" @click=\"businessEdit(item.ID, item.ProjectName)\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-pencil\"></i> 业务参数编辑</button>\n\t\t\t\t\t\t<a href=\"javascript:;\" @click=\"deletItem(item.ID, item.ProjectName)\" class=\"btn btn-xs btn-danger\"><i class=\"glyphicon glyphicon-remove\"></i> 移除</a>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</tbody>\n\t\t</table>\n\t\t<div class=\"jumbotron jumbotron-w text-center\" v-if=\"wait\" :class=\"{'loading': wait}\"> </div>\n\t\t<div class=\"panel-footer clearfix text-right\">\n\t\t\t<div :html=\"searchInfo\" class=\"text-center\"></div>\n\t\t\t<div id=\"page\"></div>\n\t\t</div>\n\t</div>\n\t<!-- /.list -->\n</div>\n";
+	module.exports = "\n<div class=\"container-fluid\">\n\t<div class=\"clearfix mb10\">\n\t\t<div class=\"pull-right\">\n\t\t\t<button type=\"button\" class=\"btn btn-success btn-sm\" @click=\"addItem('0')\"><i class=\"glyphicon glyphicon-plus\"></i> 新增项目</button>\n\t\t</div>\n\t</div>\n\t<!-- list -->\n\t<div class=\"panel panel-default\">\n\t\t<table class=\"table table-bordered table-striped\">\n\t\t\t<thead>\n\t\t\t\t<tr>\n\t\t\t\t\t<th>加入dsafdsad时间</th>\n\t\t\t\t\t<th>项目名称</th>\n\t\t\t\t\t<th>负责人</th>\n\t\t\t\t\t<th>地区</th>\n\t\t\t\t\t<th>项目推广员</th>\n\t\t\t\t\t<th>操作</th>\n\t\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t\t<tr v-for=\"item in tableList\">\n\t\t\t\t\t<td>{{item.CreateTime}}</td>\n\t\t\t\t\t<td>{{item.ProjectName}}</td>\n\t\t\t\t\t<td>{{item.Principal}}</td>\n\t\t\t\t\t<td>{{item.AreaName}}</td>\n\t\t\t\t\t<td>{{item.PromoterCount}}人</td>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<a href=\"javascript:;\" @click=\"porEdit(item.ProjectID)\" class=\"btn btn-xs btn-success\"><i class=\"glyphicon glyphicon-eye-open\"></i> 推广员编辑</a>\n\t\t\t\t\t\t<button type=\"button\" @click=\"businessEdit(item.ID, item.ProjectName)\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-pencil\"></i> 业务参数编辑</button>\n\t\t\t\t\t\t<a href=\"javascript:;\" @click=\"deletItem(item.ID, item.ProjectName)\" class=\"btn btn-xs btn-danger\"><i class=\"glyphicon glyphicon-remove\"></i> 移除</a>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</tbody>\n\t\t</table>\n\t\t<div class=\"jumbotron jumbotron-w text-center\" v-if=\"wait\" :class=\"{'loading': wait}\"> </div>\n\t\t<div class=\"panel-footer clearfix text-right\">\n\t\t\t<div :html=\"searchInfo\" class=\"text-center\"></div>\n\t\t\t<div id=\"page\"></div>\n\t\t</div>\n\t</div>\n\t<!-- /.list -->\n</div>\n";
 
 /***/ },
 /* 103 */

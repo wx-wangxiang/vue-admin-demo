@@ -1,8 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import searchStore from './search_module';
+/*import searchStore from './search_module';
 import listStore from './list_module';
-import modalStore from './modal_module';
+import modalStore from './modal_module';*/
+import searchStore from './modules/searchModule';
+import listStore from './modules/listModule';
+import modalStore from './modules/modalModule';
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -12,7 +15,7 @@ const store = new Vuex.Store({
 		modal: modalStore
 	}
 })
-export default  store; 
+export default  store;
 
 
 

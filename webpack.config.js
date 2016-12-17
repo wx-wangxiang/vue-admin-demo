@@ -13,32 +13,9 @@ module.exports = {
 	},
 	output: {
 		path: BUILD_PATH,
+		publicPath:'/asset/',
 		filename: '[name].js'
 	},
-	/*module: {
-		loaders: [
-			{
-				test: /\.css$/,
-				loaders: ['style', 'css'],
-				include: APP_PATH
-			},{
-				test: /\.js$/,
-				loader: 'babel',
-				exclude: /node_modules/,
-				query: {
-					presets: ['es2015'],
-					plugins: ['transform-runtime', 'transform-object-rest-spread']
-				}
-			},{
-				test: /\.(png|jpg|jpeg|woff|woff2)/,
-				loader: 'url?limit=8192'
-			},{
-				test: /\.vue$/,
-				loader: 'vue',
-				include: APP_PATH
-			}
-		]
-	},*/
 	module: {
 		loaders: [
 		{
@@ -66,20 +43,6 @@ module.exports = {
 			include: COMPONENT_PATH
 		}]
 	},
-	/*vue: {
-		loaders: {
-			js: 'babel?{"presets":["es2015"], "plugins":["transform-runtime","transform-object-rest-spread"]}'
-		}
-	},
-	plugins: [
-		new htmlWebpackPlugin({
-			title: 'Admin Demo',
-			template: path.resolve(TEM_PATH, 'index.html'),
-			filename: 'index.html',
-			chunks: ['app'],
-			inject: 'body'
-		})
-	],*/
 	plugins: [
 		new htmlWebpackPlugin({
 			title: 'vue is great',
@@ -99,6 +62,15 @@ module.exports = {
 			js: 'babel?{"presets":["es2015"],"plugins":["transform-runtime", "transform-object-rest-spread"]}'
 		}
 	},
+	devServer: {
+	    historyApiFallback: true,
+	    hot: true,
+	    inline: true,
+	    progress: true,
+	    proxy: {
+	    	'*': 'http://localhost:8000'
+	    }
+	  },
 	resolve: {
 		// require时省略的扩展名，如：require('app') 不需要app.js
 		extensions: ['', '.js', '.vue']

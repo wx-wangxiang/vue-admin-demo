@@ -38,6 +38,8 @@
 		store,
 		computed: {
 			...mapGetters({
+				wait: 'poerWait',
+				searchInfo: 'poerSearchInfo',
 				poerList: 'poerList'
 			})
 		},

@@ -20,6 +20,7 @@ const listStore = {
 	mutations: {
 		getData(state, data) {
 			state.searchInfo = "";
+			state.tableList = [];
 			state.wait = true;
 			$.ajax({
 				url: '/api/BusiMultisend/GetList',

@@ -1,22 +1,22 @@
 <template>
 	<div class="modal-content">
 		<div class="modal-header">
-			<button type="button" @click="closePricePage" class="close">&times;</button>
-			<h4 class="modal-title">项目下推广员价格区间设置</h4>
+			<button type="button" @click="closeBusiPage" class="close">&times;</button>
+			<h4 class="modal-title">编辑项目</h4>
 		</div>
 		<div class="modal-body">
 			<form class="form-horizontal">
 				<div class="form-group">
-					<label class="control-label col-sm-3">推广员：</label>
+					<label class="control-label col-sm-3">项目名称：</label>
 					<div class="col-sm-5">
-	                    <input disabled="disabled" type="text" class="form-control input-sm" v-model="userName"/>
+	                    <input disabled="disabled" type="text" class="form-control input-sm" v-model="projectName"/>
 	                </div>
 				</div>
 				<price-table></price-table>
 			</form>
 		</div>
 		<div class="modal-footer">
-			<button @click="closePricePage" class="btn btn-default btn-sm">取消</button>
+			<button @click="closeBusiPage" class="btn btn-default btn-sm">取消</button>
 			<button @click="submit" class="btn btn-primary btn-sm">提交</button>
 		</div>
 	</div>
@@ -30,13 +30,13 @@
 		components: {priceTable},
 		computed: {
 			...mapGetters({
-				userName: 'userName'
+				projectName: 'projectName'
 			})
 		},
 		methods: {
 			...mapActions({
-				closePricePage: 'closePricePage',
-				submit: 'submit'
+				closeBusiPage: 'closeBusiPage',
+				submit: 'busiSubmit'
 			})
 		}
 	}

@@ -19934,6 +19934,29 @@
 			    }
 			}
 		},{
+        "url": "/api/BusiMultisend/GetPriceListByUserID",
+        "type": "get",
+        "data": {
+          "Status": true,
+          "Code": 1,
+          "Message": "成功",
+          "Data": {
+              "UserName": "用户名",
+              "PriceList": [
+                  {
+                      "MinValue": 1,
+                      "MaxValue": 10,
+                      "Price": 5
+                  },
+                  {
+                      "MinValue": 11,
+                      "MaxValue": 20,
+                      "Price": 5
+                  }
+              ]
+          }
+      }
+    },{
 		    "url": "/api/WorkOrder/GetList",
 		    "type": "get",
 		    "data": {
